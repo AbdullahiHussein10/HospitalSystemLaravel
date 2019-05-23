@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 
 <div class="sidebar">
     <div class="row justify-content-center">
@@ -7,46 +9,39 @@
                 <div class="card-header text-info">DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/studentdetails">Students Detail</a>
-                </div>
-
-
-               
-                <div class="card-body">
-                    <a class="btn btn dropdown-toggle text-info" type="button" data-toggle="dropdown">Courses</a>
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="/course">Manage Courses</a></li>
-                        <li><a href="/manage_student_subjects">Manage Students Courses</a></li>
-                    </ul>
-                    </div> 
-                    
-
-
-                <div class="card-body">
-                <a href="/studentsperfomance">Student Grades</a>
+                <a href="/patients_menu">Patient Dashboard</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/fees">Fees</a>
+                <a href="/doctors_menu">Doctors Dashboard</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/studentsattendance">Student Attendance Record</a>
+                <a href="/nurses_menu">Nurses Dashboard</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/teachers">Teachers</a>
+                <a href="/rooms_menu">Hospital Room Dashboard</a>
                 </div>
 
                 <div class="card-body">
-                <a href="parents">Parents</a>
+                <a href="/appointments_menu">Appointments Dashboard</a>
                 </div>
 
-                
+                <div class="card-body">
+                <a href="/discharge_patients">Discharge Patient</a>
+                </div>
 
                 <div class="card-body">
-                <a href="/teachers">Teacher-Connect</a>
+                <a href="/pharmacy_menu">Pharmacy Details</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/transactions_menu">Payments Details</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/contact_us">Contact Us</a>
                 </div>
                     
                 </div>
@@ -70,8 +65,8 @@
                       <div class="card">
                          <div class="card-body">
                             <div class="bg-primary">
-                    <p>STUDENTS</p>  
-                    <p>TOTAL: 
+                    <p>PATIENTS</p>  
+                    <p>TOTAL:  
                             </div>
                                 </div>
                                     </div>
@@ -79,7 +74,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="bg-secondary">
-                    <p>SUBJECTS</p>  
+                    <p>DOCTORS</p>  
                     <p>TOTAL:  
                         </div>
                             </div>
@@ -92,8 +87,8 @@
                     <div class="card">
                         <div class="card-body">
                              <div class="bg-success">
-                    <p>TEACHERS</p>  
-                    <p>TOTAL:  
+                    <p>NURSES</p>  
+                    <p>TOTAL: 
                             </div>
                                 </div>
                                     </div>
@@ -105,7 +100,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="bg-primary">
-                    <p>PARENTS</p>  
+                    <p>ROOMS</p>  
                     <p>TOTAL:  
                                             </div>
                                                 </div>

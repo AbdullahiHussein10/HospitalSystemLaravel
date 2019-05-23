@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 
 <div class="sidebar">
     <div class="row justify-content-center">
@@ -7,46 +9,31 @@
                 <div class="card-header text-info">DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/studentdetails">Students Detail</a>
-                </div>
-
-
-               
-                <div class="card-body">
-                    <a class="btn btn dropdown-toggle text-info" type="button" data-toggle="dropdown">Courses</a>
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="/course">Manage Courses</a></li>
-                        <li><a href="/manage_student_subjects">Manage Students Courses</a></li>
-                    </ul>
-                    </div> 
-                    
-
-
-                <div class="card-body">
-                <a href="/studentsperfomance">Student Grades</a>
+                <a href="/add_patients">Add A Patient</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/fees">Fees</a>
+                <a href="/update_patients">Update A patient</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/studentsattendance">Student Attendance Record</a>
+                <a href="/view_patient">View Patient Record</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/teachers">Teachers</a>
+                <a href="/View_all_patients">View All Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="parents">Parents</a>
+                <a href="/schedule_appointments">Schedule Appointment</a>
                 </div>
 
-                
+                <div class="card-body">
+                <a href="/assign-room">Assign Room</a>
+                </div>
 
                 <div class="card-body">
-                <a href="/teachers">Teacher-Connect</a>
+                <a href="/checkout">Checkout</a>
                 </div>
                     
                 </div>
@@ -63,15 +50,15 @@
                         </div>
                     @endif
 
-                    <h1><b>Welcome to the Admin DashBoard!</b></h1>
+                    <h1><b>        Patients Menu</b></h1>
                     
 
                     <div class="card-group">
                       <div class="card">
                          <div class="card-body">
                             <div class="bg-primary">
-                    <p>STUDENTS</p>  
-                    <p>TOTAL: 
+                    <p>PATIENTS</p>  
+                    <p>TOTAL:  
                             </div>
                                 </div>
                                     </div>
@@ -79,7 +66,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="bg-secondary">
-                    <p>SUBJECTS</p>  
+                    <p>DOCTORS</p>  
                     <p>TOTAL:  
                         </div>
                             </div>
@@ -92,8 +79,8 @@
                     <div class="card">
                         <div class="card-body">
                              <div class="bg-success">
-                    <p>TEACHERS</p>  
-                    <p>TOTAL:  
+                    <p>NURSES</p>  
+                    <p>TOTAL: 
                             </div>
                                 </div>
                                     </div>
@@ -105,7 +92,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="bg-primary">
-                    <p>PARENTS</p>  
+                    <p>ROOMS</p>  
                     <p>TOTAL:  
                                             </div>
                                                 </div>

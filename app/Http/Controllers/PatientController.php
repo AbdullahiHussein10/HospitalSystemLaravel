@@ -14,7 +14,10 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+
+        $patients = Patient::all();
+        return view('patients.view', compact('patients'));
+
     }
 
     /**
@@ -24,7 +27,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        return view('patients.create');
     }
 
     /**
@@ -35,7 +38,20 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $patients = new Patient();
+
+        $patients->first_name = $request->input('first_name');
+        $patients->middle_name = $request->input('middle_name');
+        $patients->last_name = $request->input('last_name');
+        $patients->age = $request->input('age');
+        $patients->gender = $request->input('gender');
+        $patients->address = $request->input('address');
+        $patients->phone_number = $request->input('phone_number');
+        $patients->email = $request->input('email');
+
+        $patients->save();
+
+        return view('patients.create');
     }
 
     /**
@@ -46,7 +62,7 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        return view('patients.view', compact('patient'));
     }
 
     /**
@@ -55,9 +71,11 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function edit(Patient $patient)
+    public function edit($id)
     {
-        //
+        $patients = Patient::find($id);
+        $patients->update();
+        return view('patients.edit', compact('patients'));
     }
 
     /**
@@ -67,9 +85,23 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Patient $patient)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $patients = patient::find($id);
+
+        $patients = new Patient;
+        $patients->first_name =  $request->first_name;
+        $patients->last_name = $request->last_name;
+        $patients->middle_name = $request->middle_name;
+        $patients->age = $request->age;
+        $patients->gender = $request->gender;
+        $patients->address = $request->address;
+        $patients->phone_number = $request->phone_number;
+        $patients->email = $request->email;
+        $patients->save();
+
+        return redirect('/patients')->with('success', 'patients updated!');
     }
 
     /**
@@ -78,8 +110,11 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Patient $patient)
+    public function destroy($id)
     {
-        //
+        $patients = Patient::find($id);
+        $patients->delete();
+
+        return redirect('patients')->with('success', 'patient Record deleted successfully');
     }
 }

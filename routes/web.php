@@ -12,5 +12,32 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
+
+Route::get('/patients_menu', function(){
+    return view('patients.menu');
+});
+
+Route::resource('patients', 'PatientController');
+
+Route::get('/add_patients', function(){
+    return view('patients.create');
+});
+
+Route::get('/View_all_patients', function(){
+    return view('patients.view');
+});
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('patients', 'PatientController');
+
+Route::get('insert','PatientController@insertform');
+Route::post('create','PatientController@store'); 
+Route::get('view','PatientController@index');
+Route::post('update/{id}','PatientController@update');
+Route::get('edit/{id}','PatientController@edit');

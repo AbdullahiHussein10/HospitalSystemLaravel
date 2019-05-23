@@ -6,6 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
+    protected $table = "patients";
+    
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'age',
+        'address',
+        'gender',
+        'phone_number',
+        
+    ];
     public function doctor()
     {
         return $this->belongsTo('App\Doctor');
