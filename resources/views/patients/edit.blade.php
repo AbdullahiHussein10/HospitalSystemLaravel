@@ -13,9 +13,6 @@
                 <a href="/add_patients">Add A Patient</a>
                 </div>
 
-                <div class="card-body">
-                <a href="/update_patients">Update A patient</a>
-                </div>
 
                 <div class="card-body">
                 <a href="/view_patient">View Patient Record</a>

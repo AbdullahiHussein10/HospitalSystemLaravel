@@ -14,7 +14,9 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = Doctor::all();
+        return view('Doctors.view', compact('doctors'));
+
     }
 
     /**
@@ -24,7 +26,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        return view('Doctors.create');
     }
 
     /**
@@ -35,7 +37,18 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $doctors = new doctor();
+
+        $doctors->first_name = $request->input('first_name');
+        $doctors->middle_name = $request->input('middle_name');
+        $doctors->last_name = $request->input('last_name');
+        $doctors->age = $request->input('age');
+        $doctors->specialty = $request->input('specialty');
+        $doctors->phone_number = $request->input('phone_number');
+
+        $doctors->save();
+
+        return view('Doctors.create');
     }
 
     /**
@@ -46,7 +59,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        return view('doctors.view', compact('doctor'));
     }
 
     /**
@@ -55,9 +68,11 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Doctor $doctor)
+    public function edit($id)
     {
-        //
+        $doctors = Doctor::find($id);
+        $doctors->update();
+        return view('Doctors.edit', compact('doctors'));
     }
 
     /**
@@ -67,9 +82,21 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Doctor $doctor)
+    public function update(Request $request, $id)
     {
-        //
+        $doctors = doctor::find($id);
+
+        $doctors = new doctor;
+        $doctors->first_name =  $request->first_name;
+        $doctors->last_name = $request->last_name;
+        $doctors->middle_name = $request->middle_name;
+        $doctors->age = $request->age;
+        $doctors->specialty = $request->specialty;
+        $doctors->phone_number = $request->phone_number;
+
+        $doctors->save();
+
+        return redirect('/doctors')->with('success', 'doctors updated!');
     }
 
     /**
@@ -78,8 +105,24 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy($id)
     {
-        //
+        $doctors = doctor::find($id);
+        $doctors->delete();
+
+        return redirect('doctors')->with('success', 'doctor Record deleted successfully');
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $doctor = Doctor::where('specialty','like', '%' .$search. '%')->paginate(5);
+    
+            if (count ( $doctor ) > 0)
+                return view ( 'appointments.initial' )->withDetails ( $doctor )->withQuery ( $search );
+            else
+                return view ( 'patients.create' )->withMessage ( 'No Details found. Try to search again !' );
+        
+    }
+
 }

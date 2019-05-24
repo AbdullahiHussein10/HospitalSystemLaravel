@@ -9,16 +9,18 @@
             <div class="card bg-dark">
                 <div class="card-header text-info">DASHBOARD</div>
 
+
+
                 <div class="card-body">
-                <a href="/add_patients">Add A Patient</a>
+                <a href="/view_appointment">View appointment Record</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_patients">View All Patients</a>
+                <a href="/View_all_appointments">View All appointments</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_appointments">View Appointment</a>
+                <a href="/schedule_appointments">Schedule Appointment</a>
                 </div>
 
                 <div class="card-body">
@@ -32,7 +34,7 @@
                 </div>
             </div>
 
-        <div class="col-md-9">
+            <div class="col-md-9">
             <div class="card">
                 <div class="card-header"></div>
 
@@ -43,29 +45,34 @@
                         </div>
                     @endif
 
-                    <h1>        Patients Details</h1>
+                    <h1>        appointments Details</h1>
                     
                         
-                        <form method="post" action="{{ action('PatientController@store') }}">
+                        <form method="post" action="{{ action('appointmentController@update', 'appointments->id') }}">
 
                         
                         @csrf
 
                         <div class="form-group">
+                        <label for="id">appointments ID :</label>
+                        <input type="integer" name="id" value={{ $appointments->id}} />
+
+
+                        <div class="form-group">
                         <label for="first_name">First Name :</label>
-                        <input type="text" name="first_name">
+                        <input type="text" name="first_name" value={{ $appointments->first_name}} />
 
                         <label for="middle_name">Middle Name :</label>
-                        <input type="text" name="middle_name">
+                        <input type="text" name="middle_name" value={{ $appointments->middle_name}} />
 
                         <label for="last_name">Last Name :</label>
-                        <input type="text" name="last_name">
+                        <input type="text" name="last_name" value={{ $appointments->last_name}} />
 
                         </div>
 
                         <div class="form-group">
                         <label for="age">Age :</label><br>
-                        <input type="string" name="age">
+                        <input type="string" name="age" value={{ $appointments->age}} />
 
                         <div class="form-group">
                         <label for="gender">Gender :</label><br>
@@ -77,17 +84,16 @@
 
                         <div class="form-group">
                         <label for="address">Address :</label><br>
-                        <input type="string" name="address">
+                        <input type="string" name="address" value={{ $appointments->address}} />
 
                         <div class="form-group">
                         <label for="phone_number">Phone Number :</label><br>
-                        <input type="string" name="phone_number">
+                        <input type="string" name="phone_number" value={{ $appointments->phone_number}} />
 
                         <div class="form-group">
                         <label for="email">E-mail :</label><br>
-                        <input type="email" name="email">
-
-                        <button type="submit" class="btn btn-primary">Add Patient</button>
+                        <input type="email" name="email" value={{ $appointments->email}} />
+                        <button type="submit" class="btn btn-primary">Add appointment</button>
 
                         </form>
 

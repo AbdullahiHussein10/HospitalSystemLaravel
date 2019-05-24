@@ -30,6 +30,8 @@ Route::get('/View_all_patients', function(){
 });
 
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -41,3 +43,76 @@ Route::post('create','PatientController@store');
 Route::get('view','PatientController@index');
 Route::post('update/{id}','PatientController@update');
 Route::get('edit/{id}','PatientController@edit');
+
+
+Route::get('/appointments_menu', function(){
+    return view('appointments.initial');
+});
+
+Route::get('search','DoctorController@search');
+
+Route::get('/add_appointments{id}', function(){
+    return view('appointments.create');
+});
+
+Route::get('/View_all_appointments',function()
+{
+    return view('appointments.view');
+});
+
+Route::resource('appointments', 'AppointmentController');
+Route::get('insert','AppointmentController@insertform');
+Route::post('create','AppointmentController@store'); 
+Route::get('view','AppointmentController@index');
+Route::post('update/{id}','AppointmentController@update');
+Route::get('edit/{id}','AppointmentController@edit');
+
+Route::get('/doctors_menu', function(){
+    return view('Doctors.create');
+});
+
+Route::get('/add_doctors', function(){
+    return view('Doctors.create');
+});
+
+
+Route::get('/View_all_doctors', function(){
+    return view('Doctors.view');
+});
+
+
+Route::resource('doctors', 'DoctorController');
+
+
+Route::get('insert','DoctorController@insertform');
+Route::post('create','DoctorController@store'); 
+Route::get('view','DoctorController@index');
+Route::post('update/{id}','DoctorController@update');
+Route::get('edit/{id}','DoctorController@edit');
+
+Route::get('/add_doctors', function(){
+    return view('Doctors.create');
+});
+
+
+Route::get('/nurses_menu', function(){
+    return view('nurses.create');
+});
+
+Route::get('/add_nurses', function(){
+    return view('nurses.create');
+});
+
+Route::get('/View_all_nurses', function(){
+    return view('nurses.view');
+});
+
+
+Route::resource('nurses', 'NurseController');
+
+
+Route::get('insert','NurseController@insertform');
+Route::post('create','NurseController@store'); 
+Route::get('view','NurseController@index');
+Route::post('update/{id}','NurseController@update');
+Route::get('edit/{id}','NurseController@edit');

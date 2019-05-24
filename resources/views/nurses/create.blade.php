@@ -10,23 +10,11 @@
                 <div class="card-header text-info">DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/add_patients">Add A Patient</a>
+                <a href="/add_nurses">Add a Nurse</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_patients">View All Patients</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/view_appointments">View Appointment</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/assign-room">Assign Room</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/checkout">Checkout</a>
+                <a href="/View_all_nurses">View Nurses</a>
                 </div>
                     
                 </div>
@@ -43,10 +31,10 @@
                         </div>
                     @endif
 
-                    <h1>        Patients Details</h1>
+                    <h1>        Nurse Details</h1>
                     
                         
-                        <form method="post" action="{{ action('PatientController@store') }}">
+                        <form method="post" action="{{ action('NurseController@store') }}">
 
                         
                         @csrf
@@ -64,30 +52,16 @@
                         </div>
 
                         <div class="form-group">
-                        <label for="age">Age :</label><br>
-                        <input type="string" name="age">
-
-                        <div class="form-group">
-                        <label for="gender">Gender :</label><br>
-                        <select name="gender" value=" ">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        </select>
-
-
-                        <div class="form-group">
                         <label for="address">Address :</label><br>
                         <input type="string" name="address">
 
+
                         <div class="form-group">
                         <label for="phone_number">Phone Number :</label><br>
-                        <input type="string" name="phone_number">
+                        <input type="string" name="phone_number"><br>
 
-                        <div class="form-group">
-                        <label for="email">E-mail :</label><br>
-                        <input type="email" name="email">
 
-                        <button type="submit" class="btn btn-primary">Add Patient</button>
+                        <button type="submit" class="btn btn-primary">Add Nurse</button>
 
                         </form>
 

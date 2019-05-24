@@ -16,17 +16,18 @@ class CreateAppointmentsTable extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->UnsignedBiginteger('doctors_id')->unsigned();
-            $table->UnsignedBiginteger('patients_id')->unsigned();
             $table->date('appointment_date');
-            $table->time('appointment_time');
+            $table->string('appointment_time');
             $table->string('appointment_duration');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('address');
             $table->timestamps();
 
         });
 
         Schema::table('appointments', function(Blueprint $table){
             $table->foreign('doctors_id')->references('id')->on('doctors');
-            $table->foreign('patients_id')->references('id')->on('patients');
         });
     }
 

@@ -10,27 +10,15 @@
                 <div class="card-header text-info">DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/add_patients">Add A Patient</a>
+                <a href="/add_doctors">Add A Doctor</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_patient">View Patient Record</a>
+                <a href="/view_doctors">View Doctors Record</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_patients">View All Patients</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/schedule_appointments">Schedule Appointment</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/assign-room">Assign Room</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/checkout">Checkout</a>
+                <a href="/View_all_doctors">View All Doctors</a>
                 </div>
                     
                 </div>
@@ -69,24 +57,22 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(\App\Patient::all() as $patient)
+        @foreach(\App\Doctor::all() as $doctor)
         <tr>
-            <td>{{$patient->id}}</td>
-            <td>{{$patient->first_name}}</td>
-            <td> {{$patient->middle_name}}</td>
-            <td> {{$patient->last_name}}</td>
-            <td>{{$patient->age}}</td>
-            <td>{{$patient->gender}}</td>
-            <td>{{$patient->address}}</td>
-            <td>{{$patient->phone_number}}</td>
-            <td>{{$patient->email}}</td>
+            <td>{{$doctor->id}}</td>
+            <td>{{$doctor->first_name}}</td>
+            <td> {{$doctor->middle_name}}</td>
+            <td> {{$doctor->last_name}}</td>
+            <td>{{$doctor->age}}</td>
+            <td>{{$doctor->specialty}}</td>
+            <td>{{$doctor->phone_number}}</td>
 
             
             <td>
-                <a href="{{ route('patients.edit',$patient->id)}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('doctors.edit',$doctor->id)}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
-                <form action="{{ route('patients.destroy', $patient->id)}}" method="post">
+                <form action="{{ route('doctors.destroy', $doctor->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>

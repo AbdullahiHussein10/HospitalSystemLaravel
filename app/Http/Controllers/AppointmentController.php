@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
 use App\Appointment;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        //
+        $appointments = Appointment::all();
+        return view('appointments.view', compact('appointments'));
     }
 
     /**
@@ -24,7 +26,8 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('appointments.create');
     }
 
     /**
@@ -35,7 +38,19 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $appointments = new Appointment();
+        $appointments->doctors_id = $request->input('doctors_id');
+        $appointments->appointment_date = $request->input('appointment_date');
+        $appointments->appointment_time = $request->input('appointment_time'); 
+        $appointments->appointment_duration = $request->input('appointment_duration');
+        $appointments->first_name = $request->input('first_name');
+        $appointments->last_name = $request->input('last_name');
+        $appointments->address = $request->input('address');
+
+
+        $appointments->save();
+
+        return view('appointments.create');
     }
 
     /**
@@ -46,7 +61,7 @@ class AppointmentController extends Controller
      */
     public function show(Appointment $appointment)
     {
-        //
+        return view('appointments.view', compact('appointment'));
     }
 
     /**
@@ -57,7 +72,9 @@ class AppointmentController extends Controller
      */
     public function edit(Appointment $appointment)
     {
-        //
+        $appointments = appointment::find($id);
+        $appointments->update();
+        return view('appointments.edit', compact('appointments'));
     }
 
     /**
@@ -69,7 +86,21 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-        //
+                
+        $appointments = appointment::find($id);
+
+        $appointments = new appointment;
+        $appointments->first_name =  $request->first_name;
+        $appointments->last_name = $request->last_name;
+        $appointments->middle_name = $request->middle_name;
+        $appointments->age = $request->age;
+        $appointments->gender = $request->gender;
+        $appointments->address = $request->address;
+        $appointments->phone_number = $request->phone_number;
+        $appointments->email = $request->email;
+        $appointments->save();
+
+        return redirect('/appointments')->with('success', 'appointments updated!');
     }
 
     /**
@@ -78,8 +109,12 @@ class AppointmentController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Appointment $appointment)
+    public function destroy($id)
     {
-        //
+        $appointments = appointment::find($id);
+        $appointments->delete();
+
+        return redirect('appointments')->with('success', 'appointment Record deleted successfully');
     }
+
 }

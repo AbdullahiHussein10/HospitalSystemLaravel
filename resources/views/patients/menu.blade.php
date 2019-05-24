@@ -13,14 +13,6 @@
                 </div>
 
                 <div class="card-body">
-                <a href="/update_patients">Update A patient</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/view_patient">View Patient Record</a>
-                </div>
-
-                <div class="card-body">
                 <a href="/View_all_patients">View All Patients</a>
                 </div>
 
