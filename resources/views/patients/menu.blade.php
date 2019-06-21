@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="card-body">
-                <a href="/schedule_appointments">Schedule Appointment</a>
+                <a href="/update_patients">Update A Patient</a>
                 </div>
 
                 <div class="card-body">

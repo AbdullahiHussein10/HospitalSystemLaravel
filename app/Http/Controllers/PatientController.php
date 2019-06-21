@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Patient;
 use Illuminate\Http\Request;
 
@@ -90,16 +89,17 @@ class PatientController extends Controller
         
         $patients = patient::find($id);
 
-        $patients = new Patient;
-        $patients->first_name =  $request->first_name;
-        $patients->last_name = $request->last_name;
-        $patients->middle_name = $request->middle_name;
-        $patients->age = $request->age;
-        $patients->gender = $request->gender;
-        $patients->address = $request->address;
-        $patients->phone_number = $request->phone_number;
-        $patients->email = $request->email;
-        $patients->save();
+        $update = [
+        'first_name' =>  $request->first_name,
+        'last_name' => $request->last_name,
+        'middle_name' => $request->middle_name,
+        'age' => $request->age,
+        'gender' => $request->gender,
+        'address' => $request->address,
+        'phone_number' => $request->phone_number,
+        'email' => $request->email
+        ];
+        Patient::where('id',$id)->update($update);
 
         return redirect('/patients')->with('success', 'patients updated!');
     }
@@ -116,5 +116,28 @@ class PatientController extends Controller
         $patients->delete();
 
         return redirect('patients')->with('success', 'patient Record deleted successfully');
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $patients = Patient::where('','like', '%' .$search. '%')->paginate(5);
+    
+            if (count ( $room ) > 0)
+                return view ( 'rooms.initial' )->withDetails ( $room )->withQuery ( $search );
+            else
+                return view ( 'patients.create' )->withMessage ( 'No Details found. Try to search again !' );
+        
+    }
+    public function search1(Request $request)
+    {
+        $search1 = $request->get('search1');
+        $patients = Patient::where('id','like', '%' .$search1. '%')->paginate(5);
+    
+            if (count ( $patients ) > 0)
+                return view ( 'nurse.home' )->withDetails ( $patients )->withQuery ( $search1 );
+            else
+                return view ( 'patients.create' )->withMessage ( 'No Details found. Try to search again !' );
+        
     }
 }

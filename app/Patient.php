@@ -22,10 +22,11 @@ class Patient extends Model
         return $this->belongsTo('App\Doctor');
     }
 
-    public function room()
+    public function checkup()
     {
-        return $this->belongsTo('App\Room');
+        return $this->hasOne('\App\Checkup');
     }
+
 
     public function diagnosis()
     {

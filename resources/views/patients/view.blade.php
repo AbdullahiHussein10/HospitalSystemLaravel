@@ -10,27 +10,27 @@
                 <div class="card-header text-info">DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/add_patients">Add A Patient</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_patient">View Patient Record</a>
+                <a href="/View_all_patients">View Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_patients">View All Patients</a>
+                <a href="/add_doctors">Add Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/schedule_appointments">Schedule Appointment</a>
+                <a href="/view_doctors">View Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/assign-room">Assign Room</a>
+                <a href="/book_appointments">Book Appointment</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/checkout">Checkout</a>
+                <a href="/view_appointments">View Appointments</a>
                 </div>
                     
                 </div>

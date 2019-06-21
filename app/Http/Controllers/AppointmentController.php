@@ -43,6 +43,7 @@ class AppointmentController extends Controller
         $appointments->appointment_date = $request->input('appointment_date');
         $appointments->appointment_time = $request->input('appointment_time'); 
         $appointments->appointment_duration = $request->input('appointment_duration');
+        $appointments->appointment_charges = $request->input('appointment_charges');
         $appointments->first_name = $request->input('first_name');
         $appointments->last_name = $request->input('last_name');
         $appointments->address = $request->input('address');
@@ -90,14 +91,14 @@ class AppointmentController extends Controller
         $appointments = appointment::find($id);
 
         $appointments = new appointment;
-        $appointments->first_name =  $request->first_name;
+        $appointments->doctors_id =  $request->doctors_id;
+        $appointments->appointment_date = $request->appointment_date;
+        $appointments->appointment_time = $request->appointment_time;
+        $appointments->appointment_duration = $request->appointment_duration;
+        $appointments->appointment_charges = $request->appointment_charges;
+        $appointments->first_name = $request->first_name;
         $appointments->last_name = $request->last_name;
-        $appointments->middle_name = $request->middle_name;
-        $appointments->age = $request->age;
-        $appointments->gender = $request->gender;
         $appointments->address = $request->address;
-        $appointments->phone_number = $request->phone_number;
-        $appointments->email = $request->email;
         $appointments->save();
 
         return redirect('/appointments')->with('success', 'appointments updated!');

@@ -19,6 +19,7 @@ class CreateAppointmentsTable extends Migration
             $table->date('appointment_date');
             $table->string('appointment_time');
             $table->string('appointment_duration');
+            $table->string('appointment_charges');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('address');

@@ -15,8 +15,9 @@ class CreateDiagnosisTable extends Migration
     {
         Schema::create('diagnosis', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->longText('description');
-            $table->longText('results');
+            $table->longText('history');
+            $table->longText('exam');
+            $table->longText('diagnosis');
             $table->unsignedBigInteger('patients_id')->unsigned();
             $table->timestamps();
         });

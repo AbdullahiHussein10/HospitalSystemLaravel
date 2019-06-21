@@ -71,12 +71,15 @@
 
                         <label for="appointment_date">Appointment Date :</label>
                         <input type="date" name="appointment_date"><br>
-
+                        
                         <label for="appointment_time">Appointment Time :</label>
                         <input type="string" name="appointment_time"><br>
 
                         <label for="appointment_duration">Appointment Duration :</label>
                         <input type="string" name="appointment_duration"><br>
+
+                        <label for="appointment_charges">Appointment Charges :</label>
+                        <input type="string" name="appointment_charges"><br>
 
 
 

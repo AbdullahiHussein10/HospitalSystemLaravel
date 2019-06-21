@@ -9,24 +9,29 @@
             <div class="card bg-dark">
                 <div class="card-header text-info">DASHBOARD</div>
 
+
                 <div class="card-body">
-                <a href="/add_patients">Add A Patient</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_patients">View All Patients</a>
+                <a href="/View_all_patients">View Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_appointments">View Appointment</a>
+                <a href="/add_doctors">Add Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/assign-room">Assign Room</a>
+                <a href="/view_doctors">View Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/checkout">Checkout</a>
+                <a href="/book_appointments">Book Appointment</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_appointments">View Appointments</a>
                 </div>
                     
                 </div>
@@ -50,7 +55,6 @@
 
                         
                         @csrf
-
                         <div class="form-group">
                         <label for="first_name">First Name :</label>
                         <input type="text" name="first_name">
@@ -67,8 +71,9 @@
                         <label for="age">Age :</label><br>
                         <input type="string" name="age">
 
-                        <div class="form-group">
-                        <label for="gender">Gender :</label><br>
+
+                        
+                        <label for="gender">Gender :</label>
                         <select name="gender" value=" ">
                         <option value="male">Male</option>
                         <option value="female">Female</option>

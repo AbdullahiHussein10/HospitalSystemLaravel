@@ -14,7 +14,9 @@ class DiagnosisController extends Controller
      */
     public function index()
     {
-        //
+        
+        $diagnosis = Diagnosis::with('patient')->get();
+        return view('doc.creatediagnosis', compact('diagnosis'));
     }
 
     /**
@@ -24,7 +26,7 @@ class DiagnosisController extends Controller
      */
     public function create()
     {
-        //
+        return view('doc.creatediagnosis');
     }
 
     /**
@@ -35,7 +37,11 @@ class DiagnosisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $diagnosis = new Diagnosis();
+        $diagnosis->patients_id = $request->input('patients_id');
+        $diagnosis->history = $request->input('history');
+        $diagnosis->exam = $request->input('exam');
+        $diagnosis->diagnosis = $request->input('diagnosis');
     }
 
     /**

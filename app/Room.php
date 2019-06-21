@@ -11,8 +11,4 @@ class Room extends Model
         return $this->hasMany('App\Nurse');
     }
 
-    public function patient()
-    {
-        return $this->hasMany('App\Patient');
-    }
 }

@@ -56,6 +56,8 @@
                         
                         @csrf
 
+                      
+
                         <div class="form-group">
                         <label for="id">Patients ID :</label>
                         <input type="integer" name="id" value={{ $patients->id}} />

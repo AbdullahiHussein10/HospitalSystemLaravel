@@ -37,7 +37,11 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+            $this->middleware('guest');
+            $this->middleware('guest');
+            $this->middleware('guest:admin');
+            $this->middleware('guest:doc');
+        
     }
 
     /**
@@ -68,5 +72,36 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+
+    public function showdocRegisterForm()
+    {
+        return view('auth.register', ['url' => 'doc']);
+    }
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $admin = Admin::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/admin');
+    }
+
+    protected function createDoc(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $docr = Doc::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/doc');
     }
 }

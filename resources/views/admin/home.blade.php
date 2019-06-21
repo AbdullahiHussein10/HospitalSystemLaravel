@@ -9,39 +9,27 @@
                 <div class="card-header text-info">DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/patients_menu">Patient Dashboard</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/doctors_menu">Doctors Dashboard</a>
+                <a href="/View_all_patients">View Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/nurses_menu">Nurses Dashboard</a>
+                <a href="/add_doctors">Add Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/rooms_menu">Hospital Room Dashboard</a>
+                <a href="/view_doctors">View Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/appointments_menu">Appointments Dashboard</a>
+                <a href="/book_appointments">Book Appointment</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/discharge_patients">Discharge Patient</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/pharmacy_menu">Pharmacy Details</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/transactions_menu">Payments Details</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/contact_us">Contact Us</a>
+                <a href="/view_appointments">View Appointments</a>
                 </div>
                     
                 </div>

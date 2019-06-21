@@ -10,25 +10,12 @@
                 <div class="card-header text-info">DASHBOARD</div>
 
 
-
-                <div class="card-body">
-                <a href="/view_appointment">View appointment Record</a>
-                </div>
-
                 <div class="card-body">
                 <a href="/View_all_appointments">View All appointments</a>
                 </div>
 
                 <div class="card-body">
                 <a href="/schedule_appointments">Schedule Appointment</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/assign-room">Assign Room</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/checkout">Checkout</a>
                 </div>
                     
                 </div>
