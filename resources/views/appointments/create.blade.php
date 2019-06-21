@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -6,37 +5,43 @@
 <div class="sidebar">
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <div class="card bg-dark">
-                <div class="card-header text-info">DASHBOARD</div>
+            <div class="card-body bg-dark">
+                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/add_appointments">Add A appointment</a>
-                </div>
-
-
-                <div class="card-body">
-                <a href="/view_appointment">View appointment Record</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_appointments">View All appointments</a>
+                <a href="/View_all_patients">View Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/schedule_appointments">Schedule Appointment</a>
+                <a href="/add_doctors">Add Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/assign-room">Assign Room</a>
+                <a href="/view_doctors">View Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/checkout">Checkout</a>
+                <a href="/book_appointments">Book Appointment</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_appointments">View Appointments</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/add_departments">Add Department</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">View Departments</a>
                 </div>
                     
                 </div>
             </div>
-
             <div class="col-md-9">
             <div class="card">
                 <div class="card-header"></div>
@@ -66,18 +71,27 @@
                         <div class="form-group">
 
                         <label for="doctors_id">Doctors ID :</label>
-                        <input type="integer" name="doctors_id" value="{{app('request')->input('id')}}"><br>
+                        <select>
+                        <option>Select Doctor</option>
+                        @foreach ($arrayname as $data)                                       
+<option value="{{ $data->id }}"  >{{ $data->first_name }}</option>                                                      
+ @endforeach
+</select>
 
 
+                        <div class="form-group">
                         <label for="appointment_date">Appointment Date :</label>
                         <input type="date" name="appointment_date"><br>
                         
+                        <div class="form-group">
                         <label for="appointment_time">Appointment Time :</label>
                         <input type="string" name="appointment_time"><br>
 
+                        <div class="form-group">
                         <label for="appointment_duration">Appointment Duration :</label>
                         <input type="string" name="appointment_duration"><br>
 
+                        <div class="form-group">
                         <label for="appointment_charges">Appointment Charges :</label>
                         <input type="string" name="appointment_charges"><br>
 
@@ -88,8 +102,13 @@
                         
                         <p><b>Patient Details</b></p>
                         <div class="form-group">
-                        <label for="first_name">First Name :</label>
-                        <input type="string" name="first_name"><br>
+                        <label for="first_name">First Name</label>
+                        <select>
+                        <option>Select Patient</option>
+                        @foreach ($arrayname2 as $data)
+                        <option value="{{ $data->id }}" >{{$data->first_name}}</option>
+                        @endforeach
+                        </select>
 
                         <div class="form-group">
                         <label for="last_name">Last Name :</label>

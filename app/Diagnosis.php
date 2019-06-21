@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diagnosis extends Model
 {
+    protected $table = 'diagnosis';
     public function patient()
     {
         return $this->belongsTo('App\Patient');

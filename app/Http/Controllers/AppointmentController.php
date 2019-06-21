@@ -118,4 +118,10 @@ class AppointmentController extends Controller
         return redirect('appointments')->with('success', 'appointment Record deleted successfully');
     }
 
+    public function dynamicform()
+    {
+        $doctors = Doctor::pluck('name', 'id');
+        return view('appointments.create', compact('doctors'));
+    }
+
 }

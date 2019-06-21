@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Doctor;
+use App\Patient;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*',function($view){
+            $view->with('arrayname', Doctor::all());
+
+       
+        });
+        view()->composer('*', function($view){
+            $view->with('arrayname2', Patient::all());
+        });
     }
 }

@@ -86,20 +86,23 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $patients = patient::find($id);
 
-        $update = [
-        'first_name' =>  $request->first_name,
-        'last_name' => $request->last_name,
-        'middle_name' => $request->middle_name,
-        'age' => $request->age,
-        'gender' => $request->gender,
-        'address' => $request->address,
-        'phone_number' => $request->phone_number,
-        'email' => $request->email
-        ];
-        Patient::where('id',$id)->update($update);
+        
+        
+        $patients = Patient::find($id);
+
+       
+        
+        $patients->first_name =  $request->first_name;
+        $patients->last_name = $request->last_name;
+        $patients->middle_name = $request->middle_name;
+        $patients->age = $request->age;
+        $patients->gender = $request->gender;
+        $patients->address = $request->address;
+        $patients->phone_number = $request->phone_number;
+        $patients->email = $request->email;
+        
+        $patients->save();
 
         return redirect('/patients')->with('success', 'patients updated!');
     }

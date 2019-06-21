@@ -5,8 +5,8 @@
 <div class="sidebar">
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <div class="card bg-dark">
-                <div class="card-header text-info">DASHBOARD</div>
+            <div class="card-body bg-dark">
+                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
 
                 <div class="card-body">
                 <a href="/add_patients">Add Patients</a>
@@ -31,6 +31,14 @@
                 <div class="card-body">
                 <a href="/view_appointments">View Appointments</a>
                 </div>
+
+                <div class="card-body">
+                <a href="/add_departments">Add Department</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">View Departments</a>
+                </div>
                     
                 </div>
             </div>
@@ -52,19 +60,26 @@
                     <div class="card-group">
                       <div class="card">
                          <div class="card-body">
-                            <div class="bg-primary">
-                    <p>PATIENTS</p>  
+                            
+                    
+                    <img src="/patient.jpg" style="width:50px;height:50px">  
                     <p>TOTAL:  
-                            </div>
+                    <?php
+                    echo $patientCount;
+                    ?>
+                            
                                 </div>
                                     </div>
 
                     <div class="card">
                         <div class="card-body">
-                            <div class="bg-secondary">
-                    <p>DOCTORS</p>  
+                           
+                   
+                    <img src="/doc.png" style="width:50px;height:50px">
                     <p>TOTAL:  
-                        </div>
+                    <?php
+                echo $doctorCount;
+                ?>
                             </div>
 
                                 </div>
@@ -74,26 +89,40 @@
 
                     <div class="card">
                         <div class="card-body">
-                             <div class="bg-success">
-                    <p>NURSES</p>  
+                            
+                             <img src="/nurse.ico" style="width:50px;height:50px">
+                    
                     <p>TOTAL: 
-                            </div>
+                    <?php
+                    echo $nurseCount;
+                    ?>
+                            
                                 </div>
                                     </div>
                                         </div>
                                             </div>
                     
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="card-group">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="bg-primary">
-                    <p>ROOMS</p>  
+                                    
+                    <img src="/appointment.jpg" style="width:50px;height:50px">
                     <p>TOTAL:  
-                                            </div>
+                    <?php
+                    echo $appointmentCount;
+                    ?>
+                                            
                                                 </div>
-
-
+                                                </div>
+                <div class="card">
+                <div class="card-body">
+                <img src="department.png" style="width:50px;height:50px">
+                <p>TOTAL:
+                <?php
+                echo $doctorCount;
+                ?>
+                </div>
                     
                    
                 </div>

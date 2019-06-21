@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -6,19 +5,39 @@
 <div class="sidebar">
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <div class="card bg-dark">
-                <div class="card-header text-info">DASHBOARD</div>
+            <div class="card-body bg-dark">
+                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/add_doctors">Add A Doctor</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_doctors">View Doctors Record</a>
+                <a href="/View_all_patients">View Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_doctors">View All Doctors</a>
+                <a href="/add_doctors">Add Doctors</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_doctors">View Doctors</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/book_appointments">Book Appointment</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_appointments">View Appointments</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/add_departments">Add Department</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">View Departments</a>
                 </div>
                     
                 </div>
@@ -60,10 +79,12 @@
                         <input type="string" name="age">
 
 
+                        </div>
 
                         <div class="dropdown">
                             <label for="specialty">Specialty</label>
                             <select name="specialty">
+                            <option>Select Specialty</option>
                             <option>General Surgery</option>
                             <option>Dermatology</option>
                             <option>Family Medicine</option>
@@ -77,6 +98,10 @@
                         <label for="phone_number">Phone Number :</label><br>
                         <input type="string" name="phone_number">
 
+
+                        <div class="form-group">
+                        <label for="email">E-mail :</label><br>
+                        <input type="string" name="email">
 
                         <button type="submit" class="btn btn-primary">Add Doctor</button>
 

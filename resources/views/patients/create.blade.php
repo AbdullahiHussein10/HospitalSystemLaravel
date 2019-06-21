@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -6,9 +5,8 @@
 <div class="sidebar">
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <div class="card bg-dark">
-                <div class="card-header text-info">DASHBOARD</div>
-
+            <div class="card-body bg-dark">
+                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
 
                 <div class="card-body">
                 <a href="/add_patients">Add Patients</a>
@@ -32,6 +30,14 @@
 
                 <div class="card-body">
                 <a href="/view_appointments">View Appointments</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/add_departments">Add Department</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">View Departments</a>
                 </div>
                     
                 </div>
@@ -75,6 +81,7 @@
                         
                         <label for="gender">Gender :</label>
                         <select name="gender" value=" ">
+                        <option>Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         </select>

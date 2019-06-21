@@ -52,7 +52,11 @@
           @csrf
 
 
-           
+       
+          <div class="form-group">
+          <label for="patients_id">Patients ID</label>
+          <input type="integer" id="patients_id" name="patients_id">
+          </div>
           <div class="form-group">
           <label for="history">Patients History</label><br>
           <textarea class="form-control" rows="5" id="history" name="history"></textarea>
@@ -69,8 +73,9 @@
           </div>
 
           <button type="submit" class="btn btn-primary">Save</button>
-
-                    
+          <a href="/diagnosis/view">View Patient Examination</a>
+          
+                 
                     
                 </div>
             </div>

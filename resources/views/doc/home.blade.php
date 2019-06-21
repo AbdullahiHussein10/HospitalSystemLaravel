@@ -88,7 +88,7 @@
           <td>{{$nursecheckups->disability}}</td>
           <td>{{$nursecheckups->sugarlevel}}</td>
           <td>{{$nursecheckups->weight}}</td>
-          <td><a href="{{url('/doc.creatediagnosis')}}" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span>Add Diagnosis</a></td>
+          <td><a href="{{url('/diagnosis/create',$nursecheckups->patients_id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span>Add Diagnosis</a></td>
 
 
 

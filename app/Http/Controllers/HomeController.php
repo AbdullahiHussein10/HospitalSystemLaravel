@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Doctor;
+use App\Nurse;
+use App\Patient;
+use App\Appointment;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        
+        $doctorCount = Doctor::count();
+        $patientCount = Patient::count();
+        $nurseCount = Nurse::count();
+        $appointmentCount = Appointment::count();
+        return view('admin.home', compact('doctorCount', 'patientCount', 'nurseCount', 'appointmentCount'));
     }
     public function admin()
 
@@ -32,4 +40,5 @@ class HomeController extends Controller
 return view(‘admin’);
 
 }
+
 }

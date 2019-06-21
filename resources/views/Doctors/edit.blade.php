@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -6,22 +5,41 @@
 <div class="sidebar">
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <div class="card bg-dark">
-                <div class="card-header text-info">DASHBOARD</div>
+            <div class="card-body bg-dark">
+                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/add_doctors">Add A doctor</a>
-                </div>
-
-
-                <div class="card-body">
-                <a href="/view_doctor">View a doctor</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_doctors">View All doctors</a>
+                <a href="/View_all_patients">View Patients</a>
                 </div>
 
+                <div class="card-body">
+                <a href="/add_doctors">Add Doctors</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_doctors">View Doctors</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/book_appointments">Book Appointment</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_appointments">View Appointments</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/add_departments">Add Department</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">View Departments</a>
+                </div>
+                    
                 </div>
             </div>
 
@@ -39,7 +57,7 @@
                     <h1>        doctors Details</h1>
                     
                         
-                        <form method="post" action="{{ action('DoctorController@update', 'doctors->id') }}">
+                        <form method="post" action="{{ action('DoctorController@update', $doctors->id) }}">
 
                         
                         @csrf
@@ -53,10 +71,13 @@
                         <div class="form-group">
                         <label for="first_name">First Name :</label>
                         <input type="text" name="first_name" value={{ $doctors->first_name}} />
-
+                        
+                        <div class="form-group">
                         <label for="middle_name">Middle Name :</label>
                         <input type="text" name="middle_name" value={{ $doctors->middle_name}} />
 
+
+                        <div class="form-group">
                         <label for="last_name">Last Name :</label>
                         <input type="text" name="last_name" value={{ $doctors->last_name}} />
 
@@ -75,7 +96,8 @@
                         <label for="phone_number">Phone Number :</label><br>
                         <input type="string" name="phone_number" value={{ $doctors->phone_number}} />
 
-                        <button type="submit" class="btn btn-primary">Add doctor</button>
+                        <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update Doctor</button>
 
                         </form>
 

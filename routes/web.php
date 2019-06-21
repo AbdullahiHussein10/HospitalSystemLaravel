@@ -33,6 +33,11 @@ Route::get('/View_all_patients', function(){
     return view('patients.view');
 });
 
+Route::get('/view_doctors', function()
+{
+    return view('Doctors.view');
+});
+
 
 
 
@@ -59,7 +64,7 @@ Route::resource('patients', 'PatientController');
 Route::get('insert','PatientController@insertform');
 Route::post('create','PatientController@store'); 
 Route::get('view','PatientController@index');
-Route::put('update/{id}','PatientController@update');
+Route::post('update/{id}','PatientController@update');
 Route::get('edit/{id}','PatientController@edit');
 
 
@@ -75,7 +80,7 @@ Route::get('search2', 'CheckupController@search2');
 
 Route::get('search1', 'PatientController@search1');
 
-Route::get('/add_appointments{id}', function(){
+Route::get('/book_appointments', function(){
     return view('appointments.create');
 });
 
@@ -179,8 +184,14 @@ Route::get('edit/{id}','CheckupController@edit');
 
 
 Route::resource('diagnosis', 'DiagnosisController');
-Route::get('/doc.creatediagnosis', function()
+Route::get('/diagnosis/create/', function()
 {
-    return view('doc.creatediagnosis');
+    return view('diagnosis.create');
 });
+Route::get('/diagnosis/create/{patients_id}','DiagnosisController@create');
 
+Route::get('insert','DiagnosisController@insertform');
+Route::post('create','DiagnosisController@store'); 
+Route::get('/viewcheckups','DiagnosisController@show');
+Route::post('update/{id}','DiagnosisController@update');
+Route::get('edit/{id}','DiagnosisController@edit');

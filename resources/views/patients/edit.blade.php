@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -6,32 +5,39 @@
 <div class="sidebar">
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <div class="card bg-dark">
-                <div class="card-header text-info">DASHBOARD</div>
+            <div class="card-body bg-dark">
+                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/add_patients">Add A Patient</a>
-                </div>
-
-
-                <div class="card-body">
-                <a href="/view_patient">View Patient Record</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_patients">View All Patients</a>
+                <a href="/View_all_patients">View Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/schedule_appointments">Schedule Appointment</a>
+                <a href="/add_doctors">Add Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/assign-room">Assign Room</a>
+                <a href="/view_doctors">View Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/checkout">Checkout</a>
+                <a href="/book_appointments">Book Appointment</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_appointments">View Appointments</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/add_departments">Add Department</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">View Departments</a>
                 </div>
                     
                 </div>
@@ -51,11 +57,10 @@
                     <h1>        Patients Details</h1>
                     
                         
-                        <form method="post" action="{{ action('PatientController@update', 'patients->id') }}">
+                        <form method="post" action="{{ action('PatientController@update', $patients->id) }}">
 
-                        
-                        @csrf
-
+                        @method('PATCH') 
+            @csrf
                       
 
                         <div class="form-group">
@@ -98,7 +103,7 @@
                         <div class="form-group">
                         <label for="email">E-mail :</label><br>
                         <input type="email" name="email" value={{ $patients->email}} />
-                        <button type="submit" class="btn btn-primary">Add Patient</button>
+                        <button type="submit" class="btn btn-primary">Update Patient</button>
 
                         </form>
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Diagnosis;
 use Illuminate\Http\Request;
+use App\Patient;
+use DB;
 
 class DiagnosisController extends Controller
 {
@@ -24,9 +26,11 @@ class DiagnosisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $nursediagnosis)
     {
-        return view('doc.creatediagnosis');
+        return view('diagnosis.create');
+  
+        
     }
 
     /**
@@ -37,11 +41,17 @@ class DiagnosisController extends Controller
      */
     public function store(Request $request)
     {
+        
         $diagnosis = new Diagnosis();
         $diagnosis->patients_id = $request->input('patients_id');
         $diagnosis->history = $request->input('history');
         $diagnosis->exam = $request->input('exam');
         $diagnosis->diagnosis = $request->input('diagnosis');
+      
+        
+    $diagnosis->save();
+           
+       return view('diagnosis.create');
     }
 
     /**
@@ -50,9 +60,27 @@ class DiagnosisController extends Controller
      * @param  \App\Diagnosis  $diagnosis
      * @return \Illuminate\Http\Response
      */
-    public function show(Diagnosis $diagnosis)
+    public function show(Diagnosis $diagnosis, Patient $patients)
     {
-        //
+        $diagnosis = DB::table('diagnosis')
+        
+        ->join('patients', 'diagnosis.patients_id', '=', 'patients.id')
+        ->select('diagnosis.id','patients_id', 'patients.first_name as f_name', 'patients.last_name as l_name', 'diagnosis.history', 'diagnosis.exam', 'diagnosis.diagnosis')
+         
+        
+        ->get();
+
+     
+        
+        
+        
+        
+        
+
+       
+        
+
+    return view('diagnosis.view', ['diagnosis'=>$diagnosis]);
     }
 
     /**

@@ -44,6 +44,7 @@ class DoctorController extends Controller
         $doctors->last_name = $request->input('last_name');
         $doctors->age = $request->input('age');
         $doctors->specialty = $request->input('specialty');
+        $doctors->email = $request->input('email');
         $doctors->phone_number = $request->input('phone_number');
 
         $doctors->save();
@@ -86,7 +87,7 @@ class DoctorController extends Controller
     {
         $doctors = doctor::find($id);
 
-        $doctors = new doctor;
+        
         $doctors->first_name =  $request->first_name;
         $doctors->last_name = $request->last_name;
         $doctors->middle_name = $request->middle_name;
@@ -123,6 +124,12 @@ class DoctorController extends Controller
             else
                 return view ( 'patients.create' )->withMessage ( 'No Details found. Try to search again !' );
         
+    }
+    public function getdoccount($doctorcount)
+    {
+
+                    $doctorcount = Doctor::get()->count();
+                    echo ($doctorcount);
     }
 
 }
