@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
+use App\Patient;
 use App\Doctor;
 use App\Appointment;
 use Illuminate\Http\Request;
@@ -15,8 +16,10 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::all();
+        $appointments = Appointment::with(['patient', 'doctor'])->get();
+        dd($appointments);
         return view('appointments.view', compact('appointments'));
+
     }
 
     /**
@@ -42,11 +45,9 @@ class AppointmentController extends Controller
         $appointments->doctors_id = $request->input('doctors_id');
         $appointments->appointment_date = $request->input('appointment_date');
         $appointments->appointment_time = $request->input('appointment_time'); 
-        $appointments->appointment_duration = $request->input('appointment_duration');
         $appointments->appointment_charges = $request->input('appointment_charges');
-        $appointments->first_name = $request->input('first_name');
-        $appointments->last_name = $request->input('last_name');
-        $appointments->address = $request->input('address');
+        $appointments->patients_id = $request->input('patients_id');
+        $appointments->description = $request->input('description');
 
 
         $appointments->save();
@@ -60,9 +61,20 @@ class AppointmentController extends Controller
      * @param  \App\Appointment  $appointment
      * @return \Illuminate\Http\Response
      */
-    public function show(Appointment $appointment)
+    public function show(Appointment $appointment, Patient $patients, Doctor $doctors)
     {
-        return view('appointments.view', compact('appointment'));
+        $appointments = DB::table('appointments')
+        
+        ->join('patients', 'appointments.patients_id', '=', 'patients.id')
+        ->join('doctors', 'appointments.doctors_id', '=', 'doctors.id')
+        ->select('appointments.id','patients_id','doctors_id', 'patients.first_name as f_name', 'patients.middle_name as m_name', 'doctors.first_name as doc_fname', 'doctors.last_name as doc_lname', 'appointment_date', 'appointment_time', 'appointment_charges', 'description')
+         
+        
+        ->get();
+       
+        
+
+    return view('appointments.view', compact('appointments'));
     }
 
     /**
@@ -94,11 +106,9 @@ class AppointmentController extends Controller
         $appointments->doctors_id =  $request->doctors_id;
         $appointments->appointment_date = $request->appointment_date;
         $appointments->appointment_time = $request->appointment_time;
-        $appointments->appointment_duration = $request->appointment_duration;
         $appointments->appointment_charges = $request->appointment_charges;
-        $appointments->first_name = $request->first_name;
-        $appointments->last_name = $request->last_name;
-        $appointments->address = $request->address;
+        $appointments->patients_id = $request->patients_id;
+        $appointments->description = $request->description;
         $appointments->save();
 
         return redirect('/appointments')->with('success', 'appointments updated!');
@@ -115,7 +125,7 @@ class AppointmentController extends Controller
         $appointments = appointment::find($id);
         $appointments->delete();
 
-        return redirect('appointments')->with('success', 'appointment Record deleted successfully');
+        return redirect('/view_appointments')->with('success', 'appointment Record deleted successfully');
     }
 
     public function dynamicform()

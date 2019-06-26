@@ -70,11 +70,11 @@
 
                         <div class="form-group">
 
-                        <label for="doctors_id">Doctors ID :</label>
-                        <select>
+                        <label for="doctors_id">Doctor's Name :</label>
+                        <select name="doctors_id">
                         <option>Select Doctor</option>
                         @foreach ($arrayname as $data)                                       
-<option value="{{ $data->id }}"  >{{ $data->first_name }}</option>                                                      
+<option value="{{ $data->id }}"  >{{ $data->first_name. "  ".$data->last_name }}</option>                                                      
  @endforeach
 </select>
 
@@ -85,11 +85,17 @@
                         
                         <div class="form-group">
                         <label for="appointment_time">Appointment Time :</label>
-                        <input type="string" name="appointment_time"><br>
+                        <select name="appointment_time">
+                        <option>Choose Appointment Time</option>
+                        <option value="08:00 - 10:00">08:00 - 10:00</option>
+                        
+                        <option value="10:00 - 12:00">10:00 - 12:00</option>
+                        <option value="14:00 - 16:00">14:00 - 16:00</option>
+                        <option value="16:00 - 18:00">16:00 - 18:00</option>
 
-                        <div class="form-group">
-                        <label for="appointment_duration">Appointment Duration :</label>
-                        <input type="string" name="appointment_duration"><br>
+                        </select>
+                        </div>
+
 
                         <div class="form-group">
                         <label for="appointment_charges">Appointment Charges :</label>
@@ -102,24 +108,21 @@
                         
                         <p><b>Patient Details</b></p>
                         <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <select>
+                        <label for="patients_id">Patient's Name</label>
+                        <select name="patients_id">
                         <option>Select Patient</option>
                         @foreach ($arrayname2 as $data)
-                        <option value="{{ $data->id }}" >{{$data->first_name}}</option>
+                        <option value="{{ $data->id }}" >{{$data->first_name. " " .$data->last_name}}</option>
                         @endforeach
                         </select>
 
-                        <div class="form-group">
-                        <label for="last_name">Last Name :</label>
-                        <input type="string" name="last_name"><br>
-
 
                         <div class="form-group">
-                        <label for="address">Address :</label>
-                        <input type="string" name="address"><br>
+                        <label for="">Description</label><br>
+                        <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                        </div>
 
-                        <button type="submit" class="btn btn-primary">Add Patient</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
 
                         </form>
 

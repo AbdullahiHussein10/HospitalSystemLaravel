@@ -84,10 +84,6 @@ Route::get('/book_appointments', function(){
     return view('appointments.create');
 });
 
-Route::get('/View_all_appointments',function()
-{
-    return view('appointments.view');
-});
 
 Route::get('/schedule_appointments',function()
 {
@@ -95,9 +91,10 @@ Route::get('/schedule_appointments',function()
 });
 
 Route::resource('appointments', 'AppointmentController');
+Route::get('/view_appointments','AppointmentController@show');
 Route::get('insert','AppointmentController@insertform');
 Route::post('create','AppointmentController@store'); 
-Route::get('view','AppointmentController@index');
+Route::get('view','AppointmentController@show');
 Route::post('update/{id}','AppointmentController@update');
 Route::get('edit/{id}','AppointmentController@edit');
 
@@ -195,3 +192,9 @@ Route::post('create','DiagnosisController@store');
 Route::get('/viewcheckups','DiagnosisController@show');
 Route::post('update/{id}','DiagnosisController@update');
 Route::get('edit/{id}','DiagnosisController@edit');
+
+
+Route::get('/doc/appointments', function()
+{
+    return view('doc.appointments');
+});

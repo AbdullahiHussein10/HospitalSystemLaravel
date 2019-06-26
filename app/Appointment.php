@@ -7,15 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Appointment extends Model
 {
     protected $table = 'appointments';
-    protected $fillable = [
-        'doctors_id',
-        'appointment_date',
-        'appointment_time',
-        'appointment_duration',
-        'first_name',
-        'last_name',
-        'address',
-    ];
+
 
     public function doctor()
     {
@@ -25,5 +17,10 @@ class Appointment extends Model
     public function visit()
     {
         return $this->belongsTo('\App\Visit');
+    }
+    
+    public function patient()
+    {
+        return $this->hasOne('App\Appointment');
     }
 }

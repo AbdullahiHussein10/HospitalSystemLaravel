@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -6,16 +5,39 @@
 <div class="sidebar">
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <div class="card bg-dark">
-                <div class="card-header text-info">DASHBOARD</div>
-
+            <div class="card-body bg-dark">
+                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
 
                 <div class="card-body">
-                <a href="/View_all_appointments">View All appointments</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/schedule_appointments">Schedule Appointment</a>
+                <a href="/View_all_patients">View Patients</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/add_doctors">Add Doctors</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_doctors">View Doctors</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/book_appointments">Book Appointment</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_appointments">View Appointments</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/add_departments">Add Department</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">View Departments</a>
                 </div>
                     
                 </div>
@@ -40,35 +62,33 @@
     <thead>
         <tr>
           <td>ID</td>
-          <td>Doctor Id</td>
-          <td>Appointment Date</td>
-          <td>Appointment Time</td>
+          <td>Doctor First Name</td>
+          <td>Doctor Last Name</td>
           <td>Patient First Name</td>
           <td>Patient Last Name</td>
-          <td>Patient Address</td>
-          <td>Phone Number</td>
+          <td>Appointment Date</td>
+          <td>Appointment Time</td>
+          <td>Appointment Charges</td>
+          <td>Description</td>
 
           <td>Tasks</td>
         </tr>
     </thead>
     <tbody>
-        @foreach(\App\Appointment::all() as $appointment)
+
+        @foreach($appointments as $appointment)
         <tr>
             <td>{{$appointment->id}}</td>
-            <td>{{$appointment->doctors_id}}</td>
-
+            <td>{{$appointment->doc_fname}}</td>
+            <td>{{$appointment->doc_lname}}</td>
+            <td>{{$appointment->f_name}}</td>
+            <td>{{$appointment->m_name}}</td>
             <td>{{$appointment->appointment_date}}</td>
-            <td> {{$appointment->appointment_time}}</td>
-            <td> {{$appointment->appointment_duration}}</td>
-            <td>{{$appointment->first_name}}</td>
-            <td>{{$appointment->last_name}}</td>
-            <td>{{$appointment->address}}</td>
-            <td>{{$appointment->phone_number}}</td>
+            <td>{{$appointment->appointment_time}}</td>
+            <td>{{$appointment->appointment_charges}}</td>
+            <td>{{$appointment->description}}</td>
+           
 
-            
-            <td>
-                <a href="{{ route('appointments.edit',$appointment->id)}}" class="btn btn-primary">Edit</a>
-            </td>
             <td>
                 <form action="{{ route('appointments.destroy', $appointment->id)}}" method="post">
                   @csrf

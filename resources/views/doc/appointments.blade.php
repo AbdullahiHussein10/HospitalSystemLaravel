@@ -28,10 +28,7 @@
 
             </div>
             </div>
-
-            
-
-        <div class="col-md-10">
+            <div class="col-md-10">
             <div class="card">
                 <div class="card-header"></div>
 
@@ -56,58 +53,25 @@
 
 
 
+            <form method="post" action="{{ action('DoctorController@store') }}">
 
-
-            <table class="table table-striped">
-    <thead>
-        <tr>
-          <td>ID</td>
-          <td>First Name</td>
-          <td>Last Name</td>
-          <td>Blood_Pressure</td>
-          <td>Respiratory Rate</td>
-          <td>Temperature</td>
-          <td>HeartRate</td>
-          <td>Disability</td>
-          <td>SugarLevel</td>
-          <td>Weight</td>
-          <td>Tasks</td>
-
-        </tr>
-    </thead>
-    <tbody>
-
-        @if(isset($details))
-       @foreach($details as $nursecheckups)
-
-        
-
-        
-
-        
-        <tr>
-        <td>{{$nursecheckups->f_name}}</td>
-          <td>{{$nursecheckups->l_name}}</td>
-          <td>{{$nursecheckups->bloodpressure}}</td>
-          <td>{{$nursecheckups->respiratoryrate}}</td>
-          <td>{{$nursecheckups->temperature}}</td>
-          <td>{{$nursecheckups->heartrate}}</td>
-          <td>{{$nursecheckups->disability}}</td>
-          <td>{{$nursecheckups->sugarlevel}}</td>
-          <td>{{$nursecheckups->weight}}</td>
-          <td><a href="{{url('/diagnosis/create',$nursecheckups->patients_id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span>Add Diagnosis</a></td>
-
-
-
-                        </div>
                         
-                        <div class="container">
-                      
-            
-            @endforeach
-    @endif
+@csrf
 
-                    
+<div class="form-group">
+<label for="id">ID :</label>
+<input type="text" name="id">
+
+<div class="form-group">
+<label for="email">E-mail :</label>
+<input type="text" name="email">
+
+<div class="form-group">
+<button type="submit" class="btn btn-primary">View Appointments</button>
+
+</form>
+
+
                     
                 </div>
             </div>
@@ -115,3 +79,4 @@
     </div>
 </div>
 @endsection
+            
