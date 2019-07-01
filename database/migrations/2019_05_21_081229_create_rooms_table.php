@@ -16,14 +16,13 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('room_type');
-            $table->unsignedBigInteger('nurse_id')->unsigned();
+            $table->string('room_number');
             $table->unsignedBigInteger('patients_id')->unsigned();
             $table->integer('amount_balance');
             $table->timestamps();
         });
 
         schema::table('rooms',function(Blueprint $table){
-            $table->foreign('nurse_id')->references('id')->on('nurses');
             $table->foreign('patients_id')->references('id')->on('patients');
         });
     }

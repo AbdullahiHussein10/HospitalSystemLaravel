@@ -72,6 +72,16 @@
           <textarea class="form-control" rows="5" id="diagnosis" name="diagnosis"></textarea>
           </div>
 
+          <div class="form-group">
+          <label for="gender">Gender :</label>
+                        <select name="task" value=" ">
+                        <option>Tasks</option>
+                        <option value="Send to Admission">Send to Admission</option>
+                        <option value="Send to Pharmacy">Send to Pharmacy</option>
+                        </select>
+
+                        </div>
+
           <button type="submit" class="btn btn-primary">Save</button>
           <a href="/diagnosis/view">View Patient Examination</a>
           

@@ -54,53 +54,38 @@
                         </div>
                     @endif
 
-                    <h1><b>Welcome to the Admin DashBoard!</b></h1>
+                    <h1>        Patients Details</h1>
                     
+                        
+                        <form method="post" action="{{ action('RoomController@store') }}">
+
+                        
+                        @csrf
+
+                        <div class="form-group">
+                        <label for="room_type">Room :</label><br>
+                        <select name="room_type" value=" ">
+                        <option>Select Room Type</option>
+                        <option value="Ward">Ward</option>
+                        <option value="Ordinary">Ordinary</option>
+                        <option value="Vip room">VIP Room</option>
+                        </select>
+                        </div>
+
+                        <div class="form-group">
+                        <label for="room_number">Room Number :</label>
+                        <input type="integer" name="room_number">
+
+                        <div class="form-group">
+                        <label for="room_amount">Amount :</label>
+                        <input type="integer" name="room_amount">
 
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-          <td>ID</td>
-          <td>First Name</td>
-          <td>Middle Name</td>
-          <td>last Name</td>
-          <td>Age</td>
-          <td>Gender</td>
-          <td>Address</td>
-          <td>Phone Number</td>
-          <td>Email</td>
-          <td>Tasks</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(\App\Patient::all() as $patient)
-        <tr>
-            <td>{{$patient->id}}</td>
-            <td>{{$patient->first_name}}</td>
-            <td> {{$patient->middle_name}}</td>
-            <td> {{$patient->last_name}}</td>
-            <td>{{$patient->age}}</td>
-            <td>{{$patient->gender}}</td>
-            <td>{{$patient->address}}</td>
-            <td>{{$patient->phone_number}}</td>
-            <td>{{$patient->email}}</td>
+                        <button type="submit" class="btn btn-primary">Add Room</button>
 
-            
-            <td>
-                <a href="{{ route('patients.edit',$patient->id)}}" class="btn btn-primary">Edit</a>
-            </td>
-            <td>
-                <form action="{{ route('patients.destroy', $patient->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-  </table>
-<div>
+                        </form>
+
+        </div>
+    </div>
 </div>
 @endsection

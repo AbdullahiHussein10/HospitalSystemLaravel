@@ -86,7 +86,8 @@
 
         
         <tr>
-        <td>{{$nursecheckups->f_name}}</td>
+          <td>{{$nursecheckups->id}}</td>
+          <td>{{$nursecheckups->f_name}}</td>
           <td>{{$nursecheckups->l_name}}</td>
           <td>{{$nursecheckups->bloodpressure}}</td>
           <td>{{$nursecheckups->respiratoryrate}}</td>

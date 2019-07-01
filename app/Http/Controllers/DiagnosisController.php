@@ -47,6 +47,7 @@ class DiagnosisController extends Controller
         $diagnosis->history = $request->input('history');
         $diagnosis->exam = $request->input('exam');
         $diagnosis->diagnosis = $request->input('diagnosis');
+        $diagnosis->task = $request->input('task');
       
         
     $diagnosis->save();
@@ -65,7 +66,7 @@ class DiagnosisController extends Controller
         $diagnosis = DB::table('diagnosis')
         
         ->join('patients', 'diagnosis.patients_id', '=', 'patients.id')
-        ->select('diagnosis.id','patients_id', 'patients.first_name as f_name', 'patients.last_name as l_name', 'diagnosis.history', 'diagnosis.exam', 'diagnosis.diagnosis')
+        ->select('diagnosis.id','patients_id', 'patients.first_name as f_name', 'patients.last_name as l_name', 'diagnosis.history', 'diagnosis.exam', 'diagnosis.diagnosis', 'diagnosis.task')
          
         
         ->get();

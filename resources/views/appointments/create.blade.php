@@ -33,11 +33,11 @@
                 </div>
 
                 <div class="card-body">
-                <a href="/add_departments">Add Department</a>
+                <a href="/add_departments">Admit Patient</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_departments">View Departments</a>
+                <a href="/view_departments">Generate Invoice</a>
                 </div>
                     
                 </div>

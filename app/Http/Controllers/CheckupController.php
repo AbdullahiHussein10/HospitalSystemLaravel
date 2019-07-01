@@ -71,19 +71,10 @@ class checkupController extends Controller
         ->select('checkups.id','patients_id', 'patients.first_name as f_name', 'patients.last_name as l_name', 'checkups.bloodpressure', 'checkups.respiratoryrate', 'checkups.temperature', 'checkups.heartrate', 'checkups.disability', 'checkups.sugarlevel', 'checkups.weight')
          
         
-        ->get();
-
-     
-        
-        
-        
-        
+        ->get(); 
         
 
-       
-        
-
-    return view('nurse.viewcheckups', ['checkup'=>$checkups]);
+    return view('nurse.viewcheckups', compact('checkups'));
     }
 
     /**

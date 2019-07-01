@@ -33,11 +33,15 @@
                 </div>
 
                 <div class="card-body">
-                <a href="/add_departments">Add Department</a>
+                <a href="/add_rooms">Add Rooms</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_departments">View Departments</a>
+                <a href="/admit_patients">Admit Patient</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">Generate Invoice</a>
                 </div>
                     
                 </div>
@@ -119,9 +123,7 @@
                 <div class="card-body">
                 <img src="department.png" style="width:50px;height:50px">
                 <p>TOTAL:
-                <?php
-                echo $doctorCount;
-                ?>
+                5
                 </div>
                     
                    

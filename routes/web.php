@@ -38,6 +38,10 @@ Route::get('/view_doctors', function()
     return view('Doctors.view');
 });
 
+Route::get('/add_rooms', function(){
+    return view('rooms.add');
+});
+
 
 
 
@@ -189,7 +193,6 @@ Route::get('/diagnosis/create/{patients_id}','DiagnosisController@create');
 
 Route::get('insert','DiagnosisController@insertform');
 Route::post('create','DiagnosisController@store'); 
-Route::get('/viewcheckups','DiagnosisController@show');
 Route::post('update/{id}','DiagnosisController@update');
 Route::get('edit/{id}','DiagnosisController@edit');
 
@@ -198,3 +201,18 @@ Route::get('/doc/appointments', function()
 {
     return view('doc.appointments');
 });
+
+Route::get('search3', 'Doc_appointmentController@search3');
+
+Route::get('/doc/viewappointments', function(){
+    return view('doc.viewappointments');
+});
+
+Route::get('/admit_patients', function(){
+    return view('patients.admit');
+});
+
+Route::resource('admit', 'AdmitController');
+Route::get('search4', 'AdmitController@search4');
+
+Route::get('create','AdmitController@store');

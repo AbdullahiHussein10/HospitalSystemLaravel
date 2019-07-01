@@ -10,13 +10,11 @@
           <td>ID</td>
           <td>First Name</td>
           <td>Last Name</td>
-          <td>Blood_Pressure</td>
-          <td>Respiratory Rate</td>
-          <td>Temperature</td>
-          <td>HeartRate</td>
-          <td>Disability</td>
-          <td>SugarLevel</td>
-          <td>Weight</td>
+          <td>History</td>
+          <td>Physical Exam</td>
+          <td>Diagnosis</td>
+          <td>Task</td>
+
 
         </tr>
     </thead>
@@ -31,11 +29,13 @@
 
         
         <tr>
+        <td>{{$diagnosis->id}}</td>
         <td>{{$diagnosis->f_name}}</td>
           <td>{{$diagnosis->l_name}}</td>
           <td>{{$diagnosis->history}}</td>
           <td>{{$diagnosis->exam}}</td>
           <td>{{$diagnosis->diagnosis}}</td>
+          <td>{{$diagnosis->task}}</td>
 
 
         @endforeach

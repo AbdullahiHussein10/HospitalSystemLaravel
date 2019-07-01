@@ -18,6 +18,7 @@ class CreateDiagnosisTable extends Migration
             $table->longText('history');
             $table->longText('exam');
             $table->longText('diagnosis');
+            $table->string('task');
             $table->unsignedBigInteger('patients_id')->unsigned();
             $table->timestamps();
         });
