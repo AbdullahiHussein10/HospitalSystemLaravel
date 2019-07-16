@@ -49,6 +49,7 @@
                 </div>
             </div>
 
+
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header"></div>
@@ -60,52 +61,38 @@
                         </div>
                     @endif
 
-                    <h1><b>Welcome to the Admin DashBoard!</b></h1>
+                    <h1>        Patients Details</h1>
                     
+                        
+                        <form method="post" action="{{ action('PatientController@store') }}">
 
+                        
+                        @csrf
+                        
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-          <td>ID</td>
-          <td>First Name</td>
-          <td>Middle Name</td>
-          <td>last Name</td>
-          <td>Age</td>
-          <td>Specialty</td>
-          <td>Phone Number</td>
-          <td>Email</td>
-          <td>Task</td>
-          <td>Tasks</td>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(\App\Doctor::all() as $doctor)
-        <tr>
-            <td>{{$doctor->id}}</td>
-            <td>{{$doctor->first_name}}</td>
-            <td> {{$doctor->middle_name}}</td>
-            <td> {{$doctor->last_name}}</td>
-            <td>{{$doctor->age}}</td>
-            <td>{{$doctor->specialty}}</td>
-            <td>{{$doctor->phone_number}}</td>
-            <td>{{$doctor->email}}</td>
+                        <div class="form-group">
+                        <label for="medicine_name">Medicine Name :</label>
+                        <input type="text" name="medicine_name" placeholder="Medicine Name">
 
-            
-            <td>
-                <a href="{{ route('doctors.edit',$doctor->id)}}" class="btn btn-primary">Edit</a>
-            </td>
-            <td>
-                <form action="{{ route('doctors.destroy', $doctor->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-  </table>
-<div>
+                        </div>
+
+                        <div class="form-group">
+                        <label for="medicine_category">Medicine  Category :</label><br>
+                        <input type="string" name="medicine_category" placeholder="Medicine category">
+
+                        <div class="form-group">
+                        <label for="medicine_price">Medicine Price :</label><br>
+                        <input type="string" name="medicine_price" placeholder="Medicine price">
+
+                        <div class="form-group">
+                        <label for="medicine_quantity">Medicine Quantity :</label><br>
+                        <input type="string" name="medicine_quantity" placeholder="Medicine Quantity">
+
+                        <button type="submit" class="btn btn-primary">Add Medicine</button>
+
+                        </form>
+
+        </div>
+    </div>
 </div>
 @endsection

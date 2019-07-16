@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('content')
@@ -6,29 +5,45 @@
 <div class="sidebar">
     <div class="row justify-content-center">
         <div class="col-md-3">
-            <div class="card bg-dark">
-                <div class="card-header text-info">DASHBOARD</div>
-
-
+            <div class="card-body bg-dark">
+                <a href="/home" class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
 
                 <div class="card-body">
-                <a href="/view_appointment">View appointment Record</a>
+                <a href="/add_patients">Add Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_appointments">View All appointments</a>
+                <a href="/View_all_patients">View Patients</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/schedule_appointments">Schedule Appointment</a>
+                <a href="/add_doctors">Add Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/assign-room">Assign Room</a>
+                <a href="/view_doctors">View Doctors</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/checkout">Checkout</a>
+                <a href="/book_appointments">Book Appointment</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_appointments">View Appointments</a>
+                </div>
+
+          
+
+                <div class="card-body">
+                <a href="/admit_patients">Admit Patient</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/admitted_patients">Check Admitted Patients</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">Generate Invoice</a>
                 </div>
                     
                 </div>

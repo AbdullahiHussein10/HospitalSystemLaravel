@@ -9,45 +9,18 @@
                 <a href="/home" class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
 
                 <div class="card-body">
-                <a href="/add_patients">Add Patients</a>
+                <a href="/add_drugs">Add Drugs</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_patients">View Patients</a>
+                <a href="/View_drugs">View Drugs</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/add_doctors">Add Doctors</a>
+                <a href="/assign_drugs">Assign Drugs</a>
                 </div>
-
-                <div class="card-body">
-                <a href="/view_doctors">View Doctors</a>
                 </div>
-
-                <div class="card-body">
-                <a href="/book_appointments">Book Appointment</a>
                 </div>
-
-                <div class="card-body">
-                <a href="/view_appointments">View Appointments</a>
-                </div>
-
-          
-
-                <div class="card-body">
-                <a href="/admit_patients">Admit Patient</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/admitted_patients">Check Admitted Patients</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/view_departments">Generate Invoice</a>
-                </div>
-                    
-                </div>
-            </div>
 
         <div class="col-md-9">
             <div class="card">
@@ -60,13 +33,14 @@
                         </div>
                     @endif
 
-                    <h1>        Doctors Details</h1>
+                    <h1> Pharmacist Dashboard</h1>
                     
                         
-                        <form method="post" action="{{ action('DoctorController@store') }}">
+                        <form method="post" action="{{ action('PatientController@store') }}">
 
                         
                         @csrf
+                        
 
                         <div class="form-group">
                         <label for="first_name">First Name :</label>
@@ -80,37 +54,33 @@
 
                         </div>
 
-
                         <div class="form-group">
                         <label for="age">Age :</label><br>
                         <input type="string" name="age" placeholder="Age">
 
 
-                        </div>
+                        
+                        <label for="gender">Gender :</label>
+                        <select name="gender" value=" ">
+                        <option>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        </select>
 
-                        <div class="dropdown">
-                            <label for="specialty">Specialty</label>
-                            <select name="specialty">
-                            <option>Select Specialty</option>
-                            <option>General Surgery</option>
-                            <option>Dermatology</option>
-                            <option>Family Medicine</option>
-                            <option>Intensive Care</option>
-                            <option>Cardiology</option>
-                            <option>Physician</option>
-                            </select>
-                            </div>
+
+                        <div class="form-group">
+                        <label for="address">Address :</label><br>
+                        <input type="string" name="address" placeholder="Address">
 
                         <div class="form-group">
                         <label for="phone_number">Phone Number :</label><br>
                         <input type="string" name="phone_number" placeholder="Phone Number">
 
-
                         <div class="form-group">
                         <label for="email">E-mail :</label><br>
-                        <input type="string" name="email" placeholder="E-mail">
+                        <input type="email" name="email" placeholder="E-mail">
 
-                        <button type="submit" class="btn btn-primary">Add Doctor</button>
+                        <button type="submit" class="btn btn-primary">Add Patient</button>
 
                         </form>
 

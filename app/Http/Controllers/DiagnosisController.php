@@ -26,9 +26,9 @@ class DiagnosisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, $nursediagnosis)
+    public function create(Request $request, Patient $patients_id)
     {
-        return view('diagnosis.create');
+        return view('diagnosis.create', compact('patients_id'));
   
         
     }
@@ -39,7 +39,7 @@ class DiagnosisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Patient $patients_id)
     {
         
         $diagnosis = new Diagnosis();
@@ -52,7 +52,7 @@ class DiagnosisController extends Controller
         
     $diagnosis->save();
            
-       return view('diagnosis.create');
+       return view('diagnosis.create', compact('patients_id'));
     }
 
     /**

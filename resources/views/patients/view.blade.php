@@ -33,11 +33,19 @@
                 </div>
 
                 <div class="card-body">
-                <a href="/add_departments">Add Department</a>
+                <a href="/add_rooms">Add Rooms</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_departments">View Departments</a>
+                <a href="/admit_patients">Admit Patient</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/admitted_patients">Check Admitted Patients</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">Generate Invoice</a>
                 </div>
                     
                 </div>
@@ -61,6 +69,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+        
           <td>ID</td>
           <td>First Name</td>
           <td>Middle Name</td>
@@ -76,6 +85,7 @@
     <tbody>
         @foreach(\App\Patient::all() as $patient)
         <tr>
+            
             <td>{{$patient->id}}</td>
             <td>{{$patient->first_name}}</td>
             <td> {{$patient->middle_name}}</td>

@@ -13,9 +13,10 @@ class CreatePharmacyTable extends Migration
      */
     public function up()
     {
-        Schema::create('pharmacy', function (Blueprint $table) {
+        Schema::create('medicines', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('medicine_name');
+            $table->string('medicine_category');
             $table->string('medicine_price');
             $table->string('medicine_quantity');
             $table->timestamps();

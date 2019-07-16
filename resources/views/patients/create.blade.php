@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <div class="card-body bg-dark">
-                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
+                <a href="/home" class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
 
                 <div class="card-body">
                 <a href="/add_patients">Add Patients</a>
@@ -32,16 +32,23 @@
                 <a href="/view_appointments">View Appointments</a>
                 </div>
 
+          
+
                 <div class="card-body">
-                <a href="/add_departments">Add Department</a>
+                <a href="/admit_patients">Admit Patient</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_departments">View Departments</a>
+                <a href="/admitted_patients">Check Admitted Patients</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">Generate Invoice</a>
                 </div>
                     
                 </div>
             </div>
+
 
         <div class="col-md-9">
             <div class="card">
@@ -61,21 +68,23 @@
 
                         
                         @csrf
+                        
+
                         <div class="form-group">
                         <label for="first_name">First Name :</label>
-                        <input type="text" name="first_name">
+                        <input type="text" name="first_name" placeholder="First Name">
 
                         <label for="middle_name">Middle Name :</label>
-                        <input type="text" name="middle_name">
+                        <input type="text" name="middle_name" placeholder="Middle Name">
 
                         <label for="last_name">Last Name :</label>
-                        <input type="text" name="last_name">
+                        <input type="text" name="last_name" placeholder="Last Name">
 
                         </div>
 
                         <div class="form-group">
                         <label for="age">Age :</label><br>
-                        <input type="string" name="age">
+                        <input type="string" name="age" placeholder="Age">
 
 
                         
@@ -89,15 +98,15 @@
 
                         <div class="form-group">
                         <label for="address">Address :</label><br>
-                        <input type="string" name="address">
+                        <input type="string" name="address" placeholder="Address">
 
                         <div class="form-group">
                         <label for="phone_number">Phone Number :</label><br>
-                        <input type="string" name="phone_number">
+                        <input type="string" name="phone_number" placeholder="Phone Number">
 
                         <div class="form-group">
                         <label for="email">E-mail :</label><br>
-                        <input type="email" name="email">
+                        <input type="email" name="email" placeholder="E-mail">
 
                         <button type="submit" class="btn btn-primary">Add Patient</button>
 

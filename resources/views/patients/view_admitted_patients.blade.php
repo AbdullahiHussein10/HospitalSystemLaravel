@@ -63,47 +63,48 @@
                     <h1><b>Welcome to the Admin DashBoard!</b></h1>
                     
 
-
-<table class="table table-striped">
+            <table class="table table-striped">
     <thead>
         <tr>
           <td>ID</td>
           <td>First Name</td>
-          <td>Middle Name</td>
-          <td>last Name</td>
+          <td>Last Name</td>
+          <td>Gender</td>
           <td>Age</td>
-          <td>Specialty</td>
-          <td>Phone Number</td>
-          <td>Email</td>
-          <td>Task</td>
-          <td>Tasks</td>
+          <td>Room Type</td>
+          <td>Room Number</td>
+          <td>Room Amount</td>
+
+
         </tr>
     </thead>
     <tbody>
-        @foreach(\App\Doctor::all() as $doctor)
-        <tr>
-            <td>{{$doctor->id}}</td>
-            <td>{{$doctor->first_name}}</td>
-            <td> {{$doctor->middle_name}}</td>
-            <td> {{$doctor->last_name}}</td>
-            <td>{{$doctor->age}}</td>
-            <td>{{$doctor->specialty}}</td>
-            <td>{{$doctor->phone_number}}</td>
-            <td>{{$doctor->email}}</td>
 
-            
-            <td>
-                <a href="{{ route('doctors.edit',$doctor->id)}}" class="btn btn-primary">Edit</a>
-            </td>
-            <td>
-                <form action="{{ route('doctors.destroy', $doctor->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>
-        </tr>
+        
+       @foreach($rooms as $admissionrooms)
+  
+
+        
+        <tr>
+          <td>{{$admissionrooms->id}}</td>
+          <td>{{$admissionrooms->f_name}}</td>
+          <td>{{$admissionrooms->l_name}}</td>
+          <td>{{$admissionrooms->gender}}</td>
+          <td>{{$admissionrooms->age}}</td>
+          <td>{{$admissionrooms->room_type}}</td>
+          <td>{{$admissionrooms->room_number}}</td>
+          <td>{{$admissionrooms->amount_balance}}</td>
+
+
         @endforeach
+
+</tr>
+
+        
+
+
+
+
     </tbody>
   </table>
 <div>

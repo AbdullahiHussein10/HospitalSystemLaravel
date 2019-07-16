@@ -23,7 +23,6 @@
        @foreach($details as $docappointments)
   
 
-        
         <tr>
           <td>{{$docappointments->id}}</td>
           <td>{{$docappointments->f_name}}</td>

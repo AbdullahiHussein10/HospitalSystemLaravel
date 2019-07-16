@@ -141,6 +141,8 @@ class AppointmentController extends Controller
         
 
         $docappointments = DB::table('appointments')
+
+        
         
         ->join('doctors', 'appointments.doctors_id', '=', 'doctors.id')
         ->join('patients', 'appointments.patients_id', '=', 'patients.id')
@@ -149,11 +151,11 @@ class AppointmentController extends Controller
         
         ->get();
         
-         
         
-        
+       
 
        
             return view ('doc.viewappointments')->withDetails ($docappointments)->withQuery ($search3);
+            
     }
 }

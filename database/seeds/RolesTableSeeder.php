@@ -30,6 +30,12 @@ class RolesTableSeeder extends Seeder
                 'name' => 'ROLE_NURSE',
                 'description' => 'Nurse Priviledge'
             ]);
+
+            DB::table('roles')->insert([
+                'id' => '4',
+                'name' => 'ROLE_PHARMACIST',
+                'description' => 'Pharmacist Priviledge'
+            ]);
     }
 }
 }

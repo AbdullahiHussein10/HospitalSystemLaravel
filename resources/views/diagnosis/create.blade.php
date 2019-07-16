@@ -55,7 +55,7 @@
        
           <div class="form-group">
           <label for="patients_id">Patients ID</label>
-          <input type="integer" id="patients_id" name="patients_id">
+          <input type="integer" id="patients_id" name="patients_id" value={{$patients_id->id}} >
           </div>
           <div class="form-group">
           <label for="history">Patients History</label><br>
@@ -68,7 +68,7 @@
           </div>
 
           <div class="form-group">
-          </label for="diagnosis">Diagnosis</label><br>
+          <label for="diagnosis">Diagnosis</label><br>
           <textarea class="form-control" rows="5" id="diagnosis" name="diagnosis"></textarea>
           </div>
 

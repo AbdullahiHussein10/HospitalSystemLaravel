@@ -85,8 +85,10 @@ return view('doc.home');
 elseif($user->hasRole('ROLE_NURSE'))
 {
     return view('nurse.home');
-} else {
-return redirect('/home');
+} elseif($user->hasRole('ROLE_PHARMACIST')) {
+return view('pharmacist.home');
+}
+
 }
 }
-}
+

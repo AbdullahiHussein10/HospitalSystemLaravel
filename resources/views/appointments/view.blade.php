@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <div class="card-body bg-dark">
-                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
+                <a href="/home" class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
 
                 <div class="card-body">
                 <a href="/add_patients">Add Patients</a>
@@ -32,16 +32,23 @@
                 <a href="/view_appointments">View Appointments</a>
                 </div>
 
+          
+
                 <div class="card-body">
-                <a href="/add_departments">Add Department</a>
+                <a href="/admit_patients">Admit Patient</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/view_departments">View Departments</a>
+                <a href="/admitted_patients">Check Admitted Patients</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_departments">Generate Invoice</a>
                 </div>
                     
                 </div>
             </div>
+
 
             <div class="col-md-9">
             <div class="card">

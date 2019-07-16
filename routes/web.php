@@ -18,6 +18,11 @@ Route::get('/', function () {
 Route::get('/admin', 'AdminController@index');
 Route::get('/doc', 'DocController@index');
 Route::get('/nurse', 'NursController@index');
+Route::get('/pharmacist', 'PharmacistController@index');
+
+Route::get('/home', function(){
+    return view('admin.home');
+});
 
 Route::get('/patients_menu', function(){
     return view('patients.menu');
@@ -167,9 +172,9 @@ Route::get('/assign-room',function()
 Route::resource('rooms', 'RoomController');
 Route::get('insert','RoomController@insertform');
 Route::post('create','RoomController@store'); 
-Route::get('view','RoomController@index');
-Route::post('update/{id}','RoomController@update');
-Route::get('edit/{id}','RoomController@edit');
+Route::get('/admitted_patients','RoomController@show');
+Route::post('assign/{id}','RoomController@assign');
+
 
 Route::get('/schedule_appointments',function()
 {
@@ -215,4 +220,18 @@ Route::get('/admit_patients', function(){
 Route::resource('admit', 'AdmitController');
 Route::get('search4', 'AdmitController@search4');
 
-Route::get('create','AdmitController@store');
+Route::get('/patients/admit1/{patients_id}', 'RoomController@create');
+
+Route::get('/add_drugs', function(){
+    return view('pharmacist.create');
+});
+
+Route::get('view_drugs', function(){
+    return view('pharmacist.view');
+});
+
+Route::get('/assign_drugs', function(){
+    return view('pharmacist.assign');
+});
+
+

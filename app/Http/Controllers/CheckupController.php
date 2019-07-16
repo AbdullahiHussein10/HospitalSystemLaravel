@@ -125,7 +125,7 @@ class checkupController extends Controller
      */
     public function destroy($id)
     {
-        $checkups = checkup::find($id);
+        $checkups = Checkup::find($id);
         $checkups->delete();
 
         return redirect('nurse.home')->with('success', 'checkup Record deleted successfully');

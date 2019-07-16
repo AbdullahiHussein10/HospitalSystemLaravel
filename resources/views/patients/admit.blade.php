@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <div class="card-body bg-dark">
-                <div class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</div>
+                <a href="/home" class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
 
                 <div class="card-body">
                 <a href="/add_patients">Add Patients</a>
@@ -32,8 +32,14 @@
                 <a href="/view_appointments">View Appointments</a>
                 </div>
 
+          
+
                 <div class="card-body">
                 <a href="/admit_patients">Admit Patient</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/admitted_patients">Check Admitted Patients</a>
                 </div>
 
                 <div class="card-body">
@@ -42,7 +48,6 @@
                     
                 </div>
             </div>
-
 
 
         <div class="col-md-9">
@@ -58,8 +63,8 @@
             <button type="submit" class="btn btn-info">List Patients to Admit
                 
             </button>
-            </div>
-           
+            
+           </form>
     
 
             
@@ -77,12 +82,13 @@
         </tr>
     </thead>
     <tbody>
-
+   
+   
         @if(isset($details))
        @foreach($details as $patientsadmit)
   
 
-        
+  
         <tr>
           <td>{{$patientsadmit->id}}</td>
           <td>{{$patientsadmit->f_name}}</td>
@@ -90,95 +96,17 @@
           <td>{{$patientsadmit->gender}}</td>
           <td>{{$patientsadmit->age}}</td>
           <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal">Assign Room</button>
-            </td>
-           
-     
-</tr>
-
         
+          <a href="{{url('/patients/admit1' , $patientsadmit->patients_id)}}" class="btn btn-primary">Assign Room</a>
+          
+          </td>
+       
+            @endforeach
+        @endif 
+       
+</tr>      
 
 </tbody>
   </table>
 
-            <div class="container">
-            <form method="post" action="{{ action('RoomController@store') }}">
-
-            <div class="modal" id="mymodal">
-            <div class="modal-dialog">
-            <div class="modal-content">
-
-            <div class="modal-header">
-            <h4 class="modal-title">Assign Room</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
-
-            
-            <div class="modal-body">
-                <div class="form-group">
-                <label for="patients_id">Patients ID</label>
-                <input type="integer" name="patients_id" value={{$patientsadmit->id}} />
-            </div>
-
-            <div class="form-group">
-                <label for="f_name">Patients First Name</label>
-                <input type="integer" name="f_name" value={{$patientsadmit->f_name}} />
-            </div>
-
-            <div class="form-group">
-                <label for="l_name">Patients Last Name</label>
-                <input type="integer" name="l_name" value={{$patientsadmit->l_name}} />
-            </div>
-
-            <label for="room">Room :</label>
-                        <select name="room" value=" ">
-                        <option>Select Room Type</option>
-                        <option value="Ward">Ward</option>
-                        <option value="Ordinary">Ordinary</option>
-                        <option value="Vip room">VIP Room</option>
-                        </select>
-                        <br>
-
-                        <label for="room">Room :</label>
-                        <select name="room" value=" ">
-                        <option>Select Room Number</option>
-                        <option value="vip_one">VIP 1</option>
-                        <option value="vip_two">VIP 2</option>
-                        <option value="vip_three">VIP 3</option>
-                        <option value="vip_four">VIP 4</option>
-                        <option value="vip_five">VIP 5</option>
-                        <option value="ward_one">WARD 1</option>
-                        <option value="ward_two">WARD 2</option>
-                        <option value="ward_three">WARD 3</option>
-                        <option value="ward_four">WARD 4</option>
-                        <option value="ward_five">WARD 5</option>
-                        <option value="ward_six">WARD 6</option>
-                        <option value="ward_seven">WARD 7</option>
-                        <option value="ward_eight">WARD 8</option>
-                        <option value="ward_nine">WARD 9</option>
-                        <option value="ordinary_one">ORDINARY 1</option>
-                        <option value="ordinary_two">ORDINARY 2</option>
-                        <option value="ordinary_three">ORDINARY 3</option>
-                        <option value="ordinary_four">ORDINARY 4</option>
-                        <option value="ordinary_five">ORDINARY 5</option>
-                        <option value="Ordinary_six">ORDINARY 6</option>
-                        
-                        </select>
-                        </div>
-                        <div class="modal-footer">
-                        <div class="justify-content-center">
-                        <a href="class"type="button" class="btn btn-primary">Admit</button>
-                        </div>
-                        
-                                   
-            @endforeach
-        @endif
-
-
-<div>
-</div>
-</div>
-</div>
-</div>
 @endsection
