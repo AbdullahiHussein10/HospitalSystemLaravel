@@ -70,20 +70,20 @@
 
                         <div class="form-group">
                         <label for="first_name">First Name :</label>
-                        <input type="text" name="first_name" placeholder="First Name">
+                        <input type="text" name="first_name" placeholder="First Name", required>
 
                         <label for="middle_name">Middle Name :</label>
-                        <input type="text" name="middle_name" placeholder="Middle Name">
+                        <input type="text" name="middle_name" placeholder="Middle Name", required>
 
                         <label for="last_name">Last Name :</label>
-                        <input type="text" name="last_name" placeholder="Last Name">
+                        <input type="text" name="last_name" placeholder="Last Name", required>
 
                         </div>
 
 
                         <div class="form-group">
                         <label for="age">Age :</label><br>
-                        <input type="string" name="age" placeholder="Age">
+                        <input type="string" name="age" placeholder="Age", required>
 
 
                         </div>
@@ -103,12 +103,12 @@
 
                         <div class="form-group">
                         <label for="phone_number">Phone Number :</label><br>
-                        <input type="string" name="phone_number" placeholder="Phone Number">
+                        <input type="string" name="phone_number" placeholder="Phone Number", required>
 
 
                         <div class="form-group">
                         <label for="email">E-mail :</label><br>
-                        <input type="string" name="email" placeholder="E-mail">
+                        <input type="string" name="email" placeholder="E-mail", required>
 
                         <button type="submit" class="btn btn-primary">Add Doctor</button>
 

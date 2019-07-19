@@ -73,36 +73,36 @@
                         <div class="col-12">
                         <div class="form-group">
                         <label for="bloodpressure">Blood Pressure(mm|Hg) :</label><br>
-                        <input type="integer" placeholder="BloodPressure" name="bloodpressure"><br>
+                        <input type="integer" placeholder="BloodPressure" name="bloodpressure", required><br>
                         
 
                     
 
                         <label for="respiratoryrate">Respiratory Rate(Breaths/min) :</label><br>
-                        <input type="integer" placeholder="RespiratoryRate" name="respiratoryrate"><br>
+                        <input type="integer" placeholder="RespiratoryRate" name="respiratoryrate", required><br>
 
                         <label for="temperature">Temperature(cels) :</label><br>
-                        <input type="integer" placeholder="Temperature" name="temperature"><br>
+                        <input type="integer" placeholder="Temperature" name="temperature", required><br>
                         @csrf
                         <div class="form-group">
                         <label for="heartrate">Heart Rate(beats/min) :</label><br>
-                        <input type="integer" placeholder="Heart Rate" name="heartrate"><br>
+                        <input type="integer" placeholder="Heart Rate" name="heartrate", required><br>
 
                         <div class="form-group">
                         <label for="sugarlevel">Sugar Level(mM) :</label><br>
-                        <input type="integer" placeholder="Sugar Level" name="sugarlevel"><br>
+                        <input type="integer" placeholder="Sugar Level" name="sugarlevel", required><br>
 
                         <label for="disability">Disability :</label><br>
-                        <input type="text" placeholder="Disability" name="disability"><br>
+                        <input type="text" placeholder="Disability" name="disability", required><br>
 
                         <label for="weight">Weight(kg) :</label><br>
-                        <input type="integer" placeholder="weight" name="weight"><br>
+                        <input type="integer" placeholder="weight" name="weight", required><br>
 
                         </div>
 
                         <div class="form-group">
                         <label for="height">Height(cm) :</label><br>
-                        <input type="string" placeholder="Height" name="height"><br>
+                        <input type="string" placeholder="Height" name="height", required><br>
 
                         
                         <button type="submit" class="btn btn-primary">Add checkup</button>

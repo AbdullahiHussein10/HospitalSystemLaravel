@@ -88,7 +88,7 @@
 
                         <div class="form-group">
                         <label for="appointment_date">Appointment Date :</label>
-                        <input type="date" name="appointment_date"><br>
+                        <input type="date" name="appointment_date", required><br>
                         
                         <div class="form-group">
                         <label for="appointment_time">Appointment Time :</label>
@@ -107,7 +107,7 @@
 
                         <div class="form-group">
                         <label for="appointment_charges">Appointment Charges :</label>
-                        <input type="string" name="appointment_charges"><br>
+                        <input type="string" name="appointment_charges", required><br>
 
 
 
@@ -127,7 +127,7 @@
 
                         <div class="form-group">
                         <label for="">Description</label><br>
-                        <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                        <textarea class="form-control" rows="3" id="description" name="description", required></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Save</button>

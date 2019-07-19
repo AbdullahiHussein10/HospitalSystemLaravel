@@ -72,24 +72,26 @@
 
                         <div class="form-group">
                         <label for="first_name">First Name :</label>
-                        <input type="text" name="first_name" placeholder="First Name">
+                        <input type="text" name="first_name" placeholder="First Name", required>
 
                         <label for="middle_name">Middle Name :</label>
-                        <input type="text" name="middle_name" placeholder="Middle Name">
+                        <input type="text" name="middle_name" placeholder="Middle Name", required>
+                        </div>
 
+                        <div>
                         <label for="last_name">Last Name :</label>
-                        <input type="text" name="last_name" placeholder="Last Name">
+                        <input type="text" name="last_name" placeholder="Last Name", required>
 
                         </div>
 
                         <div class="form-group">
                         <label for="age">Age :</label><br>
-                        <input type="string" name="age" placeholder="Age">
+                        <input type="string" name="age" placeholder="Age", required>
 
 
                         
                         <label for="gender">Gender :</label>
-                        <select name="gender" value=" ">
+                        <select name="gender" value=" ", required>
                         <option>Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -98,15 +100,15 @@
 
                         <div class="form-group">
                         <label for="address">Address :</label><br>
-                        <input type="string" name="address" placeholder="Address">
+                        <input type="string" name="address" placeholder="Address", required>
 
                         <div class="form-group">
                         <label for="phone_number">Phone Number :</label><br>
-                        <input type="string" name="phone_number" placeholder="Phone Number">
+                        <input type="string" name="phone_number" placeholder="Phone Number", required>
 
                         <div class="form-group">
                         <label for="email">E-mail :</label><br>
-                        <input type="email" name="email" placeholder="E-mail">
+                        <input type="email" name="email" placeholder="E-mail", required>
 
                         <button type="submit" class="btn btn-primary">Add Patient</button>
 

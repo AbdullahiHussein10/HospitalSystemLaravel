@@ -73,7 +73,7 @@
             
                 <div class="form-group">
                 <label for="patients_id">Patients ID</label>
-                <input type="integer" name="patients_id" value={{$patients_id->id}}  />
+                <input type="integer" name="patients_id" value={{$patients_id->id}}  >
             </div>
 
       
@@ -116,7 +116,7 @@
 
             <div class="form-group">
                 <label for="amount_balance">Room Amount</label>
-                <input type="integer" name="amount_balance" />
+                <input type="integer" name="amount_balance", required>
             </div>
                        
                         <button type="submit" class="btn btn-primary">Admit</button>
