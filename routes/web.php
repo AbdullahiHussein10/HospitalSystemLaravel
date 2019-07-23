@@ -222,16 +222,30 @@ Route::get('search4', 'AdmitController@search4');
 
 Route::get('/patients/admit1/{patients_id}', 'RoomController@create');
 
-Route::get('/add_drugs', function(){
-    return view('pharmacist.create');
-});
-
-Route::get('view_drugs', function(){
-    return view('pharmacist.view');
-});
 
 Route::get('/assign_drugs', function(){
     return view('pharmacist.assign');
+});
+Route::get('/patients/pharmacy1/{patients_id}','MedicineController@create');
+
+
+Route::resource('pharmacy', 'PharmacyController');
+
+Route::get('search5', 'PharmacyController@search5');
+Route::get('insert','PharmacyController@insertform');
+Route::post('create','PharmacyController@store'); 
+Route::get('/View_drugs','PharmacyController@index');
+Route::post('update/{id}','PharmacyController@update');
+Route::get('edit/{id}','PharmacyController@edit');
+
+Route::resource('medicine', 'MedicineController');
+Route::get('assign2/{patients_id}','MedicineController@create');
+Route::post('create','MedicineController@store');
+
+
+
+Route::get('/add_drugs', function(){
+    return view('pharmacist.create');
 });
 
 

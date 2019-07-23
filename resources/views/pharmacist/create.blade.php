@@ -9,45 +9,18 @@
                 <a href="/home" class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
 
                 <div class="card-body">
-                <a href="/add_patients">Add Patients</a>
+                <a href="/add_drugs">Add Drugs</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/View_all_patients">View Patients</a>
+                <a href="/View_drugs">View Drugs</a>
                 </div>
 
                 <div class="card-body">
-                <a href="/add_doctors">Add Doctors</a>
+                <a href="/assign_drugs">Assign Drugs</a>
                 </div>
-
-                <div class="card-body">
-                <a href="/view_doctors">View Doctors</a>
                 </div>
-
-                <div class="card-body">
-                <a href="/book_appointments">Book Appointment</a>
                 </div>
-
-                <div class="card-body">
-                <a href="/view_appointments">View Appointments</a>
-                </div>
-
-          
-
-                <div class="card-body">
-                <a href="/admit_patients">Admit Patient</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/admitted_patients">Check Admitted Patients</a>
-                </div>
-
-                <div class="card-body">
-                <a href="/view_departments">Generate Invoice</a>
-                </div>
-                    
-                </div>
-            </div>
 
 
         <div class="col-md-9">
