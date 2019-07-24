@@ -248,4 +248,8 @@ Route::get('/add_drugs', function(){
     return view('pharmacist.create');
 });
 
+Route::get('view_assigned_drugs', function(){
+    return view('pharmacist.view_assigned_drugs');
+});
+Route::get('search6', 'MedicineController@search6');
 

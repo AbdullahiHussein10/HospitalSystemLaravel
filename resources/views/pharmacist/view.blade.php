@@ -6,11 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <div class="card-body bg-dark">
-                <a href="/home" class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
-
-                <div class="card-body">
-                <a href="/add_drugs">Add Drugs</a>
-                </div>
+                <a class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
 
                 <div class="card-body">
                 <a href="/View_drugs">View Drugs</a>
@@ -18,6 +14,10 @@
 
                 <div class="card-body">
                 <a href="/assign_drugs">Assign Drugs</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_assigned_drugs">Check Assigned Drugs</a>
                 </div>
                 </div>
                 </div>

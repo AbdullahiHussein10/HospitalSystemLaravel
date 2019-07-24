@@ -6,11 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-3">
             <div class="card-body bg-dark">
-                <a href="/home" class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
-
-                <div class="card-body">
-                <a href="/add_drugs">Add Drugs</a>
-                </div>
+                <a class="card-header text-primary"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</a>
 
                 <div class="card-body">
                 <a href="/View_drugs">View Drugs</a>
@@ -18,6 +14,10 @@
 
                 <div class="card-body">
                 <a href="/assign_drugs">Assign Drugs</a>
+                </div>
+
+                <div class="card-body">
+                <a href="/view_assigned_drugs">Check Assigned Drugs</a>
                 </div>
                 </div>
                 </div>
@@ -34,10 +34,10 @@
                         </div>
                     @endif
 
-                    <h1>        Patients Details</h1>
+                    <h1>        Medicine Details</h1>
                     
                         
-                        <form method="post" action="{{ action('PatientController@store') }}">
+                        <form method="post" action="{{ action('PharmacyController@store') }}">
 
                         
                         @csrf
@@ -45,21 +45,21 @@
 
                         <div class="form-group">
                         <label for="medicine_name">Medicine Name :</label>
-                        <input type="text" name="medicine_name" placeholder="Medicine Name">
+                        <input type="text" name="medicine_name" placeholder="Medicine Name", required>
 
                         </div>
 
                         <div class="form-group">
                         <label for="medicine_category">Medicine  Category :</label><br>
-                        <input type="string" name="medicine_category" placeholder="Medicine category">
+                        <input type="string" name="medicine_category" placeholder="Medicine category", required>
 
                         <div class="form-group">
                         <label for="medicine_price">Medicine Price :</label><br>
-                        <input type="string" name="medicine_price" placeholder="Medicine price">
+                        <input type="string" name="medicine_price" placeholder="Medicine price", required>
 
                         <div class="form-group">
                         <label for="medicine_quantity">Medicine Quantity :</label><br>
-                        <input type="string" name="medicine_quantity" placeholder="Medicine Quantity">
+                        <input type="string" name="medicine_quantity" placeholder="Medicine Quantity", required>
 
                         <button type="submit" class="btn btn-primary">Add Medicine</button>
 

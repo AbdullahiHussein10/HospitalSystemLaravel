@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Patient;
 use App\Pharmacy;
 use App\Medicine;
+use DB;
 
 class MedicineController extends Controller
 {
@@ -101,5 +102,30 @@ class MedicineController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search6(Request $request)
+    {
+        $search6 = $request->get('search6');
+
+        
+
+        $assigneddrugs = DB::table('medicines')
+
+        
+        
+        ->join('patients', 'medicines.patients_id', '=', 'patients.id')
+        ->select('medicines.id','patients_id', 'patients.first_name as f_name', 'patients.last_name as l_name', 'medicines.medicine_name', 'medicines.medicine_category', 'medicines.medicine_price', 'medicines.medicine_quantity')
+        ->where('patients.id', '=', $search6)
+        
+        ->get();
+        
+        
+        
+        
+
+       
+            return view ('pharmacist.view_assigned_drugs')->withDetails ($assigneddrugs)->withQuery ($search6);
+
     }
 }
