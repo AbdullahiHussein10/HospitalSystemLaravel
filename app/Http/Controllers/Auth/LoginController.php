@@ -88,6 +88,9 @@ elseif($user->hasRole('ROLE_NURSE'))
 } elseif($user->hasRole('ROLE_PHARMACIST')) {
 return view('pharmacist.home');
 }
+else{
+    abort(404);
+}
 
 }
 }

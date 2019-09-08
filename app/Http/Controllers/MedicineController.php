@@ -17,7 +17,8 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        //
+        $data = Pharmacy::all();
+        return view('pharmacist.assign2', compact('data'));
     }
 
     /**
